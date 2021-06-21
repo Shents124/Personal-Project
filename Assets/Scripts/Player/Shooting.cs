@@ -15,13 +15,10 @@ public class Shooting : MonoBehaviour
          RaycastHit hit;
          if (Physics.Raycast(ray, out hit))
          {
-             // 
              Vector3 fireDir = ( hit.point - transform.position ).normalized;
-             // Instance sandwich
              GameObject bullet = PoolManager.Instance.RequestFood();
-             // set 
              bullet.transform.position = shootingPos.position;
-             // Assign moveDirection of sandwich
+             // Assign moveDirection of bullet
              bullet.GetComponent<Food>().moveDirection = fireDir;
              bullet.GetComponent<Food>().playerPosition = transform.position;
          }

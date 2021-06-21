@@ -18,7 +18,6 @@ public class Food : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        // Check if sandwich trigger the animal
         if (other.CompareTag(targetTag))
         {
             other.GetComponent<IDamageable>().TakeDame(dame);

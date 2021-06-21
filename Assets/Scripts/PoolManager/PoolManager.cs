@@ -50,13 +50,9 @@ public class PoolManager : MonoBehaviour
         List<GameObject> newList = new List<GameObject>();
         for (int i = 0; i < amount; i++)
         {
-            // Instantiate apple game object
             GameObject food = Instantiate(foodPrefab);
-            // Set parent for apple game object
             food.transform.parent = container;
-            // Set apple game object to false
             food.SetActive(false);
-            // add apple game object to newlist
             newList.Add(food);
         }
         return newList;
@@ -74,7 +70,6 @@ public class PoolManager : MonoBehaviour
     {
         foreach (GameObject food in listFood)
         {
-            // Check if sandwich is not active
             if (!food.gameObject.activeInHierarchy)
             {
                 food.SetActive(true);
