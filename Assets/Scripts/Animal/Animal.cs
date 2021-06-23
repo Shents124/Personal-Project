@@ -1,5 +1,5 @@
+using System;
 using UnityEngine;
-using UnityEngine.Serialization;
 
 public class Animal : MonoBehaviour,IDamageable
 {
@@ -12,12 +12,17 @@ public class Animal : MonoBehaviour,IDamageable
     [SerializeField] protected int point;
     protected Vector3 direction;
     private Rigidbody _animalRb;
-
     private float timeDelay;
 
     protected virtual void OnEnable()
     {
         timeDelay = 1f;
+        EventBroker.GameOver += StopFollowingPlayer;
+    }
+
+    private void OnDisable()
+    {
+        EventBroker.GameOver -= StopFollowingPlayer;
     }
 
     // Start is called before the first frame update
@@ -59,5 +64,11 @@ public class Animal : MonoBehaviour,IDamageable
             EventBroker.CallUpdateScore(point);
             EventBroker.CallUpdateCountAnimal();
         }
+    }
+
+    private void StopFollowingPlayer()
+    {
+        gameObject.GetComponent<Animator>().enabled = false;
+        speed = 0;
     }
 }
