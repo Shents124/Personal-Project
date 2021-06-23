@@ -61,7 +61,6 @@ public class PauseUI : MonoBehaviour
 
     private void DisplayGameOver()
     {
-        Time.timeScale = 0f;
         gameOver.SetActive(true);
     }
     
