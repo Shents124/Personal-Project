@@ -4,7 +4,7 @@ using UnityEngine;
 public class PlayerLife : MonoBehaviour
 {
     private int currentHealth;
-    private int maxHealth = 50;
+    private int maxHealth = 200;
     public HealthBar healthBar;
 
     private Animator playerAnimator;
