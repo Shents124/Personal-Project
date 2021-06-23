@@ -1,18 +1,21 @@
-using System;
 using UnityEngine;
+using UnityEngine.Serialization;
 
-public class Animal : MonoBehaviour
+public class Animal : MonoBehaviour,IDamageable
 {
+    public static int healthDragon = 200;
     [SerializeField] protected float speed;
-    public Transform playerPosition;
+    public Transform playerTransform;
 
     protected int currentHealth;
     protected int maxHealth;
+    [SerializeField] protected int point;
+    protected Vector3 direction;
     private Rigidbody _animalRb;
 
     private float timeDelay;
 
-    private void OnEnable()
+    protected virtual void OnEnable()
     {
         timeDelay = 1f;
     }
@@ -23,10 +26,10 @@ public class Animal : MonoBehaviour
         _animalRb = GetComponentInChildren<Rigidbody>();
     }
 
-    private void Update()
+    protected virtual void Update()
     {
         // Look at player
-        this.transform.LookAt(playerPosition);
+        this.transform.LookAt(playerTransform);
     }
 
     private void FixedUpdate()
@@ -38,10 +41,23 @@ public class Animal : MonoBehaviour
         }
     }
 
-    private void Move()
+    protected virtual void Move()
     {
-        Vector3 direction = (playerPosition.position - transform.position).normalized;
+        direction = (playerTransform.position - transform.position).normalized;
         // Add velocity
         _animalRb.velocity = direction * speed;
+    }
+
+    public virtual void TakeDame(int amoutOfDame)
+    {
+        currentHealth -= amoutOfDame;
+        if (currentHealth <= 0)
+        {
+            Destroy(gameObject);
+            SpawnAnimal.amountOfAnimal--;
+            Debug.Log(SpawnAnimal.amountOfAnimal);
+            EventBroker.CallUpdateScore(point);
+            EventBroker.CallUpdateCountAnimal();
+        }
     }
 }

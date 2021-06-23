@@ -1,19 +1,9 @@
-using UnityEngine;
-
-public class Dog : Animal,IDamageable
+public class Dog : Animal
 {
-    private void OnEnable()
+    protected override void OnEnable()
     {
         maxHealth = 30;
         currentHealth = maxHealth;
-    }
-    public void TakeDame(int amoutOfDame)
-    {
-        currentHealth -= amoutOfDame;
-        if (currentHealth <= 0)
-        {
-            Destroy(gameObject);
-            SpawnManager.amountOfAnimal--;
-        }
+        base.OnEnable();
     }
 }

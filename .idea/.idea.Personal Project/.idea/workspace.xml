@@ -8,12 +8,12 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/WeaponFoodPickup/WeaponFoodPickup.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/SpawnManager/SpawnManager.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/EventBroker.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Animal/Stag.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/SpawnManager/SpawnManager.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Animal/Horse.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Player/Pickup.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/WeaponFoodPickup/WeaponFoodPickup.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
     <changedPaths>
@@ -29,12 +29,12 @@
       <option value="$PROJECT_DIR$/Assets/Scripts/Animal/Stag.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/SpawnManager/SpawnManager.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Shooting.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/Food/Food.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/WeaponFoodPickup/WeaponFoodPickup.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/EventBroker.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Player/Pickup.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/PoolManager/PoolManager.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Player/Shooting.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Food/Food.cs" />
     </changedPaths>
   </component>
   <component name="ProjectId" id="1uCkKbxAkjw1Gc2pciUJfosXqKg" />
@@ -79,6 +79,7 @@
       <updated>1624176902395</updated>
       <workItem from="1624176909072" duration="3830000" />
       <workItem from="1624235839736" duration="9882000" />
+      <workItem from="1624281665009" duration="170000" />
     </task>
     <servers />
   </component>

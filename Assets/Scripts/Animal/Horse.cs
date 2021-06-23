@@ -1,19 +1,10 @@
-using UnityEngine;
 
-public class Horse : Animal,IDamageable
+public class Horse : Animal
 {
-    private void OnEnable()
+    protected override void OnEnable()
     {
         maxHealth = 50;
         currentHealth = maxHealth;
-    }
-    public void TakeDame(int amoutOfDame)
-    {
-        currentHealth -= amoutOfDame;
-        if (currentHealth <= 0)
-        {
-            Destroy(gameObject);
-            SpawnManager.amountOfAnimal--;
-        }
+        base.OnEnable();
     }
 }

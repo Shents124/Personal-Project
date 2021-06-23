@@ -1493,7 +1493,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 18
-  playerPosition: {fileID: 0}
+  playerTransform: {fileID: 0}
+  point: 20
 --- !u!1 &3141400716578545870
 GameObject:
   m_ObjectHideFlags: 0
