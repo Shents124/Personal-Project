@@ -28,7 +28,7 @@ public class PlayerLife : MonoBehaviour
         healthBar.SetHealth(currentHealth);
         if (currentHealth <= 0)
         {
-            Debug.Log("Game Over");
+            EventBroker.CallGameOver();
         }
     }
 }
