@@ -4,14 +4,17 @@ using UnityEngine;
 public class PlayerLife : MonoBehaviour
 {
     private int currentHealth;
-    private int maxHealth = 200;
+    private int maxHealth = 50;
     public HealthBar healthBar;
+
+    private Animator playerAnimator;
     
     // Start is called before the first frame update
     void Start()
     {
         currentHealth = maxHealth;
         healthBar.SetMaxHealth(maxHealth);
+        playerAnimator = GetComponent<Animator>();
     }
 
     private void OnCollisionEnter(Collision other)
@@ -29,6 +32,9 @@ public class PlayerLife : MonoBehaviour
         if (currentHealth <= 0)
         {
             EventBroker.CallGameOver();
+            playerAnimator.SetBool("Death_b",true);
+            GetComponent<PlayerController>().enabled = false;
+            GetComponent<Shooting>().enabled = false;
         }
     }
 }
