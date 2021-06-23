@@ -9,7 +9,6 @@
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/SpawnManager/SpawnWeapon.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/UIManager/UIManager.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
     <changedPaths>
@@ -26,6 +25,7 @@
       <option value="$PROJECT_DIR$/Assets/Scripts/Animal/Dragon.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Animal/Animal.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/SpawnManager/SpawnAnimal.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/UI/MenuUI.cs" />
     </changedPaths>
   </component>
   <component name="ProjectId" id="1uGE8DyVTUs12M8EH0KoJ5cS6jj" />
@@ -71,6 +71,7 @@
       <workItem from="1624283383781" duration="2239000" />
       <workItem from="1624324491006" duration="5179000" />
       <workItem from="1624371090882" duration="7152000" />
+      <workItem from="1624416841589" duration="285000" />
     </task>
     <servers />
   </component>
