@@ -22,8 +22,7 @@ public class Dragon : Animal
 
     protected override void Update()
     {
-        base.Update();
-
+        this.transform.LookAt(playerTransform);
         float distanceToPlayer = Vector3.Distance(transform.position, playerTransform.position);
         if (distanceToPlayer >= maxDistanceRange)
         {

@@ -68,8 +68,8 @@ public class Animal : MonoBehaviour,IDamageable
 
     private void StopFollowingPlayer()
     {
+        gameObject.GetComponent<Animal>().enabled = false;
         gameObject.GetComponent<Animator>().enabled = false;
-        speed = 0;
     }
 
     private void OnCollisionEnter(Collision other)
