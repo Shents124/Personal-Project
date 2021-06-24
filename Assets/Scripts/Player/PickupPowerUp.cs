@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 
 public class PickupPowerUp : MonoBehaviour
@@ -11,6 +10,8 @@ public class PickupPowerUp : MonoBehaviour
     private float timeShootingDoubleBullet;
     private float timeShootingTripleBullet;
 
+    private bool isHasShield = false;
+
     private void Start()
     {
         timeUsingShield = timeCountDownPowerUp;
@@ -20,9 +21,7 @@ public class PickupPowerUp : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if(powerUpType == PowerUpType.HealthUp)
-            HealthUp();
-        if(powerUpType == PowerUpType.Shield)
+        if(isHasShield)
             ProtectPlayer();
         if(powerUpType == PowerUpType.DoubleBullet)
             ShootingDoubleBullet();
@@ -35,27 +34,39 @@ public class PickupPowerUp : MonoBehaviour
         if (other.CompareTag(powerUp))
         {
             powerUpType = other.GetComponent<PowerUp>().powerUpType;
-            Debug.Log("Has " + powerUpType);
-            Destroy(other.gameObject);
+            DestroyGameObject(other.gameObject);
+        }
+
+        if (other.CompareTag("HealthUp"))
+        {
+            DestroyGameObject(other.gameObject);
+            HealthUp();
+        }
+
+        if (other.CompareTag("Protection"))
+        {
+            DestroyGameObject(other.gameObject);
+            isHasShield = true;
         }
     }
 
     private void HealthUp()
     {
         GetComponent<PlayerLife>().currentHealth += healthUpPoint;
-        powerUpType = PowerUpType.None;
     }
 
     private void ProtectPlayer()
     {
         PlayerLife playerLife = GetComponent<PlayerLife>();
         playerLife.isHasShield = true;
+        Debug.Log(playerLife.isHasShield);
         timeUsingShield -= Time.deltaTime;
         if (timeUsingShield <= 0)
         {
             timeUsingShield = timeCountDownPowerUp;
             playerLife.isHasShield = false;
-            powerUpType = PowerUpType.None;
+            isHasShield = false;
+            Debug.Log(playerLife.isHasShield);
         }
     }
 
@@ -63,6 +74,7 @@ public class PickupPowerUp : MonoBehaviour
     {
         Shooting playerShooting = GetComponent<Shooting>();
         playerShooting.isShootingDouble = true;
+        playerShooting.isShootingTriple = false;
         timeShootingDoubleBullet -= Time.deltaTime;
         if (timeShootingDoubleBullet <= 0)
         {
@@ -76,6 +88,7 @@ public class PickupPowerUp : MonoBehaviour
     {
         Shooting playerShooting = GetComponent<Shooting>();
         playerShooting.isShootingTriple = true;
+        playerShooting.isShootingDouble = false;
         timeShootingTripleBullet -= Time.deltaTime;
         if (timeShootingTripleBullet <= 0)
         {
@@ -83,5 +96,11 @@ public class PickupPowerUp : MonoBehaviour
             playerShooting.isShootingTriple = false;
             powerUpType = PowerUpType.None;
         }
+    }
+
+    private void DestroyGameObject(GameObject other)
+    {
+        Destroy(other);
+        SpawnPowerUp.amountOfPowerUp--;
     }
 }
