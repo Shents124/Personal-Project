@@ -40,6 +40,7 @@
       <option value="$PROJECT_DIR$/Assets/Scripts/Player/PlayerLife.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/SpawnManager/SpawnAnimal.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Animal/Dragon.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Cursor.cs" />
     </changedPaths>
   </component>
   <component name="ProjectId" id="1uGE8DyVTUs12M8EH0KoJ5cS6jj" />
@@ -90,6 +91,7 @@
       <workItem from="1624461443906" duration="2964000" />
       <workItem from="1624500398496" duration="4999000" />
       <workItem from="1624519991310" duration="8264000" />
+      <workItem from="1624540516972" duration="304000" />
     </task>
     <servers />
   </component>
