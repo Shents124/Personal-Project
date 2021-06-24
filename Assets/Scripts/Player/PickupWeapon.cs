@@ -4,7 +4,6 @@ public class PickupWeapon : MonoBehaviour
 {
     public WeaponFoodType weaponFoodType;
     private string weaponTag = "WeaponPickup";
-    private string powerupTag = "Powerup";
     private float timeCountDownCookie = 15f;
     private float timeCountDownSandwich = 10f;
 

@@ -1,4 +1,3 @@
-using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -77,7 +76,10 @@ public class PoolManager : MonoBehaviour
             }
         }
 
-        return null;
+        GameObject newFood = Instantiate(listFood[0]);
+        newFood.transform.parent = container;
+        listFood.Add(newFood);
+        return newFood;
     }
 
     private GameObject GetFoodPrefabs(WeaponFoodType weaponFoodType)

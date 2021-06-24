@@ -3,9 +3,10 @@ using UnityEngine;
 
 public class PlayerLife : MonoBehaviour
 {
-    private int currentHealth;
+    public int currentHealth;
     private int maxHealth = 200;
     public HealthBar healthBar;
+    public bool isHasShield = false;
 
     private Animator playerAnimator;
     
@@ -17,9 +18,17 @@ public class PlayerLife : MonoBehaviour
         playerAnimator = GetComponent<Animator>();
     }
 
+    private void Update()
+    {
+        if (currentHealth >= maxHealth)
+        {
+            currentHealth = maxHealth;
+        }
+    }
+
     private void OnCollisionEnter(Collision other)
     {
-        if (other.collider.CompareTag("Animal"))
+        if (other.collider.CompareTag("Animal") && isHasShield == false)
         {
             TakeDame();
         }
