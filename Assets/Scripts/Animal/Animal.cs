@@ -9,7 +9,8 @@ public class Animal : MonoBehaviour,IDamageable
 
     protected int currentHealth;
     protected int maxHealth;
-    [SerializeField] protected int point;
+    [SerializeField] protected int pointScore;
+    [SerializeField] protected int dame = 5;
     protected Vector3 direction;
     private Rigidbody _animalRb;
     private float timeDelay;
@@ -60,8 +61,7 @@ public class Animal : MonoBehaviour,IDamageable
         {
             Destroy(gameObject);
             SpawnAnimal.amountOfAnimal--;
-            Debug.Log(SpawnAnimal.amountOfAnimal);
-            EventBroker.CallUpdateScore(point);
+            EventBroker.CallUpdateScore(pointScore);
             EventBroker.CallUpdateCountAnimal();
         }
     }
@@ -70,5 +70,13 @@ public class Animal : MonoBehaviour,IDamageable
     {
         gameObject.GetComponent<Animator>().enabled = false;
         speed = 0;
+    }
+
+    private void OnCollisionEnter(Collision other)
+    {
+        if (other.gameObject.CompareTag("Player"))
+        {
+            other.gameObject.GetComponent<IDamageable>().TakeDame(dame);
+        }
     }
 }

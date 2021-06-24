@@ -37,7 +37,6 @@ public class SpawnAnimal : MonoBehaviour
             if (startTimeDelay <= 0)
             {
                 waveSpawn++;
-                //Debug.Log(waveSpawn);
                 startTimeDelay = timeDelaySpawn;
                 amountOfAnimalDefault++;
                 amountOfAnimal = amountOfAnimalDefault;

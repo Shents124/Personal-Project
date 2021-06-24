@@ -13,9 +13,10 @@ public class Dragon : Animal
     {
         maxHealth = healthDragon;
         currentHealth = maxHealth;
-        base.OnEnable();
         dragonAnimator = GetComponent<Animator>();
         speed = runSpeed;
+        dame = 15;
+        base.OnEnable();
     }
 
     protected override void Update()
@@ -34,7 +35,7 @@ public class Dragon : Animal
             speed = runSpeed;
         }
 
-        if (distanceToPlayer <= minDistanceRange - 5 )
+        if (distanceToPlayer <= minDistanceRange - 10 )
         {
             dragonAnimator.SetTrigger("Attack");
             speed = 0;
@@ -48,8 +49,7 @@ public class Dragon : Animal
         {
             DestroyGameObject();
             healthDragon += 50;
-            SpawnAnimal.amountOfAnimal--;
-            EventBroker.CallUpdateScore(point);
+            EventBroker.CallUpdateScore(pointScore);
             EventBroker.CallUpdateCountAnimal();
         }
     }

@@ -59,14 +59,12 @@ public class PickupPowerUp : MonoBehaviour
     {
         PlayerLife playerLife = GetComponent<PlayerLife>();
         playerLife.isHasShield = true;
-        Debug.Log(playerLife.isHasShield);
         timeUsingShield -= Time.deltaTime;
         if (timeUsingShield <= 0)
         {
             timeUsingShield = timeCountDownPowerUp;
             playerLife.isHasShield = false;
             isHasShield = false;
-            Debug.Log(playerLife.isHasShield);
         }
     }
 
