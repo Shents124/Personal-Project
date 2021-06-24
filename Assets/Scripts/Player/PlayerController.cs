@@ -2,7 +2,8 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    public float speed;
+    [SerializeField] private float speed;
+    private float speedDefault = 650f;
     public LayerMask ground;
     
     private float horizontalInput;
@@ -25,6 +26,7 @@ public class PlayerController : MonoBehaviour
     {
         _playerRb = GetComponent<Rigidbody>();
         currentStamina = maxStamina;
+        speed = speedDefault;
     }
 
     private void Update()
@@ -33,16 +35,22 @@ public class PlayerController : MonoBehaviour
         verticalInput = Input.GetAxis("Vertical") * speed;
 
         // Increase speed when hold LeftShift key
-        if (Input.GetKey(KeyCode.LeftShift) && !isSpeedUp  && isHasStamina)
+        if (isHasStamina)
         {
-            speed *= speedMultiplier;
-            isSpeedUp = true;
+            if (Input.GetKey(KeyCode.LeftShift) && !isSpeedUp)
+            {
+                speed = speedDefault * speedMultiplier;
+                isSpeedUp = true;
+            }
         }
-
+        else
+        {
+            speed = speedDefault /speedMultiplier;
+        }
         // Set speed to default when don't hold LeftShift key any more
         if (Input.GetKeyUp(KeyCode.LeftShift) && isSpeedUp)
         {
-            speed /= speedMultiplier;
+            speed = speedDefault;
             isSpeedUp = false;
         }
         UpdateStamina();
@@ -88,11 +96,9 @@ public class PlayerController : MonoBehaviour
         {
             isHasStamina = false;
             currentStamina = 0;
-            speed /= 2;
         }
         else
             isHasStamina = true;
-        
         staminaUI.UpdateStamina(currentStamina,maxStamina);
     }
 }
