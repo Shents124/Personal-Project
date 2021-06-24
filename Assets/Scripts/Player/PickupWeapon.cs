@@ -42,7 +42,7 @@ public class PickupWeapon : MonoBehaviour
         if (timeCountDownSandwich <= 0)
         {
             UsingAppleWeapon();
-            timeCountDownSandwich = 15f;
+            timeCountDownSandwich = 10f;
         }
     }
 

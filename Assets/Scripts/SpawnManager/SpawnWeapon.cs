@@ -8,7 +8,7 @@ public class SpawnWeapon : MonoBehaviour
 
     private int maxSpawnRange = 60;
     private int maxWeaponSpawn = 5;
-    private float timeDelay = 10f;
+    private float timeDelay = 20f;
     private float startTimeDelay;
     
     // Start is called before the first frame update

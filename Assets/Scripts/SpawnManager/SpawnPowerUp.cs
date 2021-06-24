@@ -8,7 +8,7 @@ public class SpawnPowerUp : MonoBehaviour
 
     private int maxSpawnRange = 60;
     private int maxPowerUpSpawn = 4;
-    private float timeDelay = 10f;
+    private float timeDelay = 20f;
     private float startTimeDelay;
     
     // Start is called before the first frame update
