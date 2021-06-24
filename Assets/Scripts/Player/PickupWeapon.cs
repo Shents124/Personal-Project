@@ -1,8 +1,6 @@
-using System;
-using System.Timers;
 using UnityEngine;
 
-public class Pickup : MonoBehaviour
+public class PickupWeapon : MonoBehaviour
 {
     public WeaponFoodType weaponFoodType;
     private string weaponTag = "WeaponPickup";
