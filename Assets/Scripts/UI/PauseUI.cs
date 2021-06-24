@@ -10,6 +10,7 @@ public class PauseUI : MonoBehaviour
     private bool isGamePaused = false;
     public GameObject pauseMenu;
     public GameObject gameOver;
+    public GameObject staminaUI;
 
     private void OnEnable()
     {
@@ -25,9 +26,9 @@ public class PauseUI : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            if (isGamePaused == false)
+            if (isGamePaused == false && pauseMenu.activeInHierarchy == false)
                 PauseGame();
-            else
+            else if(isGamePaused && pauseMenu.activeInHierarchy)
                 ResumeGame();
         }
     }
@@ -37,6 +38,7 @@ public class PauseUI : MonoBehaviour
         Time.timeScale = 1f;
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         gameOver.SetActive(false);
+        staminaUI.SetActive(true);
     }
     
     private void PauseGame()
@@ -44,6 +46,7 @@ public class PauseUI : MonoBehaviour
         Time.timeScale = 0f;
         pauseMenu.SetActive(true);
         isGamePaused = true;
+        staminaUI.SetActive(false);
     }
 
     public void ResumeGame()
@@ -51,6 +54,7 @@ public class PauseUI : MonoBehaviour
         Time.timeScale = 1f;
         pauseMenu.SetActive(false);
         isGamePaused = false;
+        staminaUI.SetActive(true);
     }
 
     public void BackToMenu()
