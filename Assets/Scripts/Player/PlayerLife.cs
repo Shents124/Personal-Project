@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-public class PlayerLife : MonoBehaviour
+public class PlayerLife : MonoBehaviour,IDamageable
 {
     public int currentHealth;
     private int maxHealth = 200;
@@ -9,7 +9,7 @@ public class PlayerLife : MonoBehaviour
     public bool isHasShield = false;
 
     private Animator playerAnimator;
-    
+
     // Start is called before the first frame update
     void Start()
     {
@@ -25,18 +25,10 @@ public class PlayerLife : MonoBehaviour
             currentHealth = maxHealth;
         }
     }
-
-    private void OnCollisionEnter(Collision other)
+    
+    public void TakeDame(int amoutOfDame)
     {
-        if (other.collider.CompareTag("Animal") && isHasShield == false)
-        {
-            TakeDame();
-        }
-    }
-
-    private void TakeDame()
-    {
-        currentHealth -= 5;
+        currentHealth -= amoutOfDame;
         healthBar.SetHealth(currentHealth);
         if (currentHealth <= 0)
         {
