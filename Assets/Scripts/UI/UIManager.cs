@@ -9,6 +9,7 @@ public class UIManager : MonoBehaviour
     public TextMeshProUGUI animalCount;
 
     public TextMeshProUGUI currentWeapon;
+    public TextMeshProUGUI waveSpawnAnimal;
 
     private int totalScore;
     private int totalCount;
@@ -24,6 +25,7 @@ public class UIManager : MonoBehaviour
         EventBroker.UpdateScore += UpdateScore;
         EventBroker.UpdateCountAnimal += UpdateCountAnimal;
         EventBroker.PickupWeaponFood += DisplayCurrentWeapon;
+        EventBroker.DisplayWaveSpawn += DisplayWaveSpawn;
     }
 
     private void OnDisable()
@@ -31,6 +33,7 @@ public class UIManager : MonoBehaviour
         EventBroker.UpdateScore -= UpdateScore;
         EventBroker.UpdateCountAnimal -= UpdateCountAnimal;
         EventBroker.PickupWeaponFood -= DisplayCurrentWeapon;
+        EventBroker.DisplayWaveSpawn -= DisplayWaveSpawn;
     }
 
     private void UpdateScore(int point)
@@ -53,5 +56,17 @@ public class UIManager : MonoBehaviour
     private void DisplayCurrentWeapon(WeaponFoodType weaponFoodType)
     {
         currentWeapon.text = "Weapon: " + weaponFoodType;
+    }
+
+    private void DisplayWaveSpawn(int waveSpawn)
+    {
+        waveSpawnAnimal.text = "Wave " + waveSpawn;
+        waveSpawnAnimal.gameObject.SetActive(true);
+        Invoke("TurnOffWaveSpawn",1);
+    }
+
+    private void TurnOffWaveSpawn()
+    {
+        waveSpawnAnimal.gameObject.SetActive(false);
     }
 }

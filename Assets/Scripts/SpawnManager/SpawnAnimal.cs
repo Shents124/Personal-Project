@@ -26,6 +26,8 @@ public class SpawnAnimal : MonoBehaviour
     {
         SpawnAnimalWave(amountOfAnimal);
         waveSpawn = 1;
+        EventBroker.CallDisplayWaveSpawn(waveSpawn);
+        isSpawnDragon = false;
     }
 
     // Update is called once per frame
@@ -41,6 +43,8 @@ public class SpawnAnimal : MonoBehaviour
                 amountOfAnimalDefault++;
                 amountOfAnimal = amountOfAnimalDefault;
                 SpawnAnimalWave(amountOfAnimalDefault);
+                Debug.Log(amountOfAnimalDefault);
+                EventBroker.CallDisplayWaveSpawn(waveSpawn);
                 if (waveSpawn > 0 && waveSpawn % 3 == 0 && isSpawnDragon == false)
                 {
                     SpawnDragonWave();
@@ -63,8 +67,8 @@ public class SpawnAnimal : MonoBehaviour
 
     private void SpawnDragonWave()
     {
-        Instantiate(dragon, GenerateSpawnPosition(), dragon.transform.rotation);
-        dragon.GetComponent<Animal>().playerTransform = playerTransform;
+        GameObject dragonInstantiate = Instantiate(dragon, GenerateSpawnPosition(), dragon.transform.rotation);
+        dragonInstantiate.GetComponent<Animal>().playerTransform = playerTransform;
     }
 
     private Vector3 GenerateSpawnPosition()

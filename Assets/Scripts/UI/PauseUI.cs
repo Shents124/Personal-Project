@@ -66,6 +66,7 @@ public class PauseUI : MonoBehaviour
     private void DisplayGameOver()
     {
         gameOver.SetActive(true);
+        staminaUI.SetActive(false);
     }
     
     public void Quit()
