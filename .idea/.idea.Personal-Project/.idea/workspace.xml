@@ -22,24 +22,24 @@
       <option value="$PROJECT_DIR$/Assets/Scripts/Animal/Stag.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/IDamageable.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/UIManager/UIManager.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/Animal/Dragon.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/SpawnManager/SpawnAnimal.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/UI/MenuUI.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/UI/HealthBar.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/EventBroker.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/UI/PauseUI.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/Animal/Animal.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/UI/StaminaUI.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/Player/PlayerController.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/PowerUp/PowerUp.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Player/Pickup.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/PoolManager/PoolManager.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/Player/PickupWeapon.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/Player/PlayerLife.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Player/Shooting.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/SpawnManager/SpawnWeapon.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/PowerUp/PowerUp.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/SpawnManager/SpawnPowerUp.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/SpawnManager/SpawnWeapon.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Player/PickupWeapon.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Player/PlayerController.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Player/PickupPowerUp.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Animal/Animal.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Player/PlayerLife.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/SpawnManager/SpawnAnimal.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Animal/Dragon.cs" />
     </changedPaths>
   </component>
   <component name="ProjectId" id="1uGE8DyVTUs12M8EH0KoJ5cS6jj" />
@@ -89,7 +89,7 @@
       <workItem from="1624434500146" duration="6495000" />
       <workItem from="1624461443906" duration="2964000" />
       <workItem from="1624500398496" duration="4999000" />
-      <workItem from="1624519991310" duration="4109000" />
+      <workItem from="1624519991310" duration="8264000" />
     </task>
     <servers />
   </component>

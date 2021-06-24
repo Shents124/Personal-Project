@@ -4,6 +4,7 @@ public class Dragon : Animal
 {
     private float maxDistanceRange = 20f;
     private float minDistanceRange = 15f;
+    private float rangeAttack = 5f;
     private float runSpeed = 18f;
     private float flySpeed = 22f;
     
@@ -35,7 +36,7 @@ public class Dragon : Animal
             speed = runSpeed;
         }
 
-        if (distanceToPlayer <= minDistanceRange - 10 )
+        if (distanceToPlayer <= rangeAttack )
         {
             dragonAnimator.SetTrigger("Attack");
             speed = 0;
