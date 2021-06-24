@@ -4,7 +4,7 @@ public class PickupPowerUp : MonoBehaviour
 {
     public PowerUpType powerUpType;
     private string powerUp = "PowerUp";
-    private int healthUpPoint = 20;
+    private int healthUpPoint = 50;
     private float timeCountDownPowerUp = 10f;
     private float timeUsingShield;
     private float timeShootingDoubleBullet;
