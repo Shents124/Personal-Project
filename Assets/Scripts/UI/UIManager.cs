@@ -12,6 +12,12 @@ public class UIManager : MonoBehaviour
 
     private int totalScore;
     private int totalCount;
+    private int highScore;
+
+    private void Start()
+    {
+        highScore = GameManager.Instance.LoadScore();
+    }
 
     private void OnEnable()
     {
@@ -31,6 +37,11 @@ public class UIManager : MonoBehaviour
     {
         totalScore += point;
         score.text = "Score: " + totalScore;
+        if (totalScore >= highScore)
+        {
+            highScore = totalScore;
+            GameManager.Instance.SaveScore(highScore);
+        }
     }
 
     private void UpdateCountAnimal()

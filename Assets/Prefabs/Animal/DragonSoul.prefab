@@ -825,7 +825,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 10
   playerTransform: {fileID: 0}
-  point: 200
+  pointScore: 200
+  dame: 15
 --- !u!1 &7049308284571107782
 GameObject:
   m_ObjectHideFlags: 0
