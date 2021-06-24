@@ -6,7 +6,7 @@ public class EventBroker
     public static Action UpdateCountAnimal;
     public static Action GameOver;
     public static Action<WeaponFoodType> PickupWeaponFood;
-
+    public static Action<int> DisplayWaveSpawn;
     public static void CallUpdateScore(int score)
     {
         UpdateScore?.Invoke(score);
@@ -24,4 +24,10 @@ public class EventBroker
     {
         PickupWeaponFood?.Invoke(weaponFoodType);
     }
+
+    public static void CallDisplayWaveSpawn(int waveSpawn)
+    {
+        DisplayWaveSpawn?.Invoke(waveSpawn);
+    }
+    
 }
