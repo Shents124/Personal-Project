@@ -6,7 +6,6 @@ public class PlayerController : MonoBehaviour
     public LayerMask ground;
     
     private float horizontalInput;
-
     private float verticalInput;
 
     private float speedMultiplier = 1.5f;
@@ -15,11 +14,17 @@ public class PlayerController : MonoBehaviour
     private float maxDistance = 50f;
     
     private Rigidbody _playerRb;
+
+    [SerializeField] private float currentStamina;
+    [SerializeField] private float maxStamina = 50;
+    public StaminaUI staminaUI;
+    private bool isHasStamina = true;
     
     // Start is called before the first frame update
     private void Start()
     {
         _playerRb = GetComponent<Rigidbody>();
+        currentStamina = maxStamina;
     }
 
     private void Update()
@@ -28,7 +33,7 @@ public class PlayerController : MonoBehaviour
         verticalInput = Input.GetAxis("Vertical") * speed;
 
         // Increase speed when hold LeftShift key
-        if (Input.GetKey(KeyCode.LeftShift) && !isSpeedUp )
+        if (Input.GetKey(KeyCode.LeftShift) && !isSpeedUp  && isHasStamina)
         {
             speed *= speedMultiplier;
             isSpeedUp = true;
@@ -40,8 +45,9 @@ public class PlayerController : MonoBehaviour
             speed /= speedMultiplier;
             isSpeedUp = false;
         }
+        UpdateStamina();
     }
-
+    
     private void FixedUpdate()
     {
         Move();
@@ -63,5 +69,30 @@ public class PlayerController : MonoBehaviour
             // Player look at mouse position
             transform.LookAt(hit.point);
         }
+    }
+
+    private void UpdateStamina()
+    {
+        if (isSpeedUp)
+        {
+            currentStamina -= Time.deltaTime;
+        }
+        else
+        {
+            currentStamina += Time.deltaTime;
+            if (currentStamina >= maxStamina)
+                currentStamina = maxStamina;
+        }
+        
+        if (currentStamina <= 0)
+        {
+            isHasStamina = false;
+            currentStamina = 0;
+            speed /= 2;
+        }
+        else
+            isHasStamina = true;
+        
+        staminaUI.UpdateStamina(currentStamina,maxStamina);
     }
 }
