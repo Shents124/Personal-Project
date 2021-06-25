@@ -11,12 +11,7 @@ public class Food : MonoBehaviour
 
     public Vector3 moveDirection;
     public Vector3 playerPosition;
-
-    private void OnEnable()
-    {
-        //foodRb = GetComponent<Rigidbody>();
-    }
-
+    
     private void FixedUpdate()
     {
         transform.Translate(moveDirection * speed * Time.deltaTime);
@@ -31,6 +26,8 @@ public class Food : MonoBehaviour
             gameObject.SetActive(false);
             GameObject effect = Instantiate(hitEffect, transform.position, Quaternion.identity);
             Destroy(effect,0.5f);
+            
+            SoundManager.Instance.PlaySound(SoundManager.Instance.hitSound);
         }
     }
 

@@ -17,7 +17,6 @@
     <changedPaths>
       <option value="$PROJECT_DIR$/Assets/Scripts/SpawnManager/SpawnManager.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Animal/Cow.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/Animal/Dog.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Animal/Horse.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Animal/Stag.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/IDamageable.cs" />
@@ -33,17 +32,20 @@
       <option value="$PROJECT_DIR$/Assets/Scripts/Player/PickupWeapon.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Player/PlayerController.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Cursor.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/GameManager.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/UI/MenuUI.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/UI/PauseUI.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/EventBroker.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/Animal/Dragon.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/SpawnManager/SpawnAnimal.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/Animal/Animal.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/Player/PlayerLife.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/Player/PickupPowerUp.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/Food/Food.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/UI/UIManager.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Animal/Dog.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/GameManager.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Utility/MonoSingleton.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Food/Food.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Player/PlayerLife.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/SoundManager/SoundManager.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/SpawnManager/SpawnAnimal.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Animal/Dragon.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Animal/Animal.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Player/PickupPowerUp.cs" />
     </changedPaths>
   </component>
   <component name="ProjectId" id="1uGE8DyVTUs12M8EH0KoJ5cS6jj" />
@@ -96,6 +98,8 @@
       <workItem from="1624519991310" duration="8264000" />
       <workItem from="1624540516972" duration="7981000" />
       <workItem from="1624584539809" duration="7030000" />
+      <workItem from="1624605485672" duration="621000" />
+      <workItem from="1624611006217" duration="5303000" />
     </task>
     <servers />
   </component>

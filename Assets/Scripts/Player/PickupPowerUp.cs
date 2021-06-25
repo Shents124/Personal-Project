@@ -53,11 +53,14 @@ public class PickupPowerUp : MonoBehaviour
             isHasShield = true;
             shieldEffect.Play();
         }
+        SoundManager.Instance.PlaySound(SoundManager.Instance.collectingItem);
     }
 
     private void HealthUp()
     {
-        GetComponent<PlayerLife>().currentHealth += healthUpPoint;
+        PlayerLife playerLife = GetComponent<PlayerLife>();
+        playerLife.currentHealth += healthUpPoint;
+        playerLife.healthBar.SetHealth(playerLife.currentHealth);
     }
 
     private void ProtectPlayer()
@@ -65,6 +68,7 @@ public class PickupPowerUp : MonoBehaviour
         PlayerLife playerLife = GetComponent<PlayerLife>();
         playerLife.isHasShield = true;
         timeUsingShield -= Time.deltaTime;
+        
         if (timeUsingShield <= 0)
         {
             timeUsingShield = timeCountDownPowerUp;
@@ -80,6 +84,7 @@ public class PickupPowerUp : MonoBehaviour
         playerShooting.isShootingDouble = true;
         playerShooting.isShootingTriple = false;
         timeShootingDoubleBullet -= Time.deltaTime;
+        
         if (timeShootingDoubleBullet <= 0)
         {
             timeShootingDoubleBullet = timeCountDownPowerUp;
@@ -94,6 +99,7 @@ public class PickupPowerUp : MonoBehaviour
         playerShooting.isShootingTriple = true;
         playerShooting.isShootingDouble = false;
         timeShootingTripleBullet -= Time.deltaTime;
+        
         if (timeShootingTripleBullet <= 0)
         {
             timeShootingTripleBullet = timeCountDownPowerUp;

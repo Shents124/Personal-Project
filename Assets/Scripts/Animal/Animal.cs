@@ -18,11 +18,13 @@ public class Animal : MonoBehaviour,IDamageable
     {
         timeDelay = 1.5f;
         EventBroker.GameOver += StopFollowingPlayer;
+        EventBroker.GameOver += StopPlaySoundEffect;
     }
 
     private void OnDisable()
     {
         EventBroker.GameOver -= StopFollowingPlayer;
+        EventBroker.GameOver -= StopPlaySoundEffect;
     }
 
     // Start is called before the first frame update
@@ -69,6 +71,14 @@ public class Animal : MonoBehaviour,IDamageable
     {
         gameObject.GetComponent<Animal>().enabled = false;
         gameObject.GetComponent<Animator>().enabled = false;
+    }
+
+    private void StopPlaySoundEffect()
+    {
+        if (GetComponent<AudioSource>() != null)
+        {
+            GetComponent<AudioSource>().Stop();
+        }
     }
 
     private void OnCollisionEnter(Collision other)

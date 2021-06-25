@@ -40,6 +40,8 @@ public class PlayerLife : MonoBehaviour, IDamageable
                 playerAnimator.SetBool("Death_b", true);
                 GetComponent<PlayerController>().enabled = false;
                 GetComponent<Shooting>().enabled = false;
+                
+                SoundManager.Instance.PlaySound(SoundManager.Instance.gameOver);
             }
         }
     }

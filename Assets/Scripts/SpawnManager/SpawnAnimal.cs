@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 using Random = UnityEngine.Random;
@@ -6,22 +7,37 @@ public class SpawnAnimal : MonoBehaviour
 {
     public static int amountOfAnimal;
     private int amountOfAnimalDefault = 5;
+    
     public GameObject dragon;
     public List<GameObject> listAnimals;
     public Transform playerTransform;
+    
     private int maxSpawnRange = 60;
     private int waveSpawn;
 
     public static bool isSpawnDragon = false;
 
+    private AudioSource audioSource;
+    
     private void Awake()
     {
         amountOfAnimal = amountOfAnimalDefault;
     }
 
+    private void OnEnable()
+    {
+        EventBroker.GameOver += StopPlayMusic;
+    }
+
+    private void OnDisable()
+    {
+        EventBroker.GameOver -= StopPlayMusic;
+    }
+
     // Start is called before the first frame update
     private void Start()
     {
+        audioSource = GetComponent<AudioSource>();
         SpawnAnimalWave(amountOfAnimal);
         waveSpawn = 1;
         EventBroker.CallDisplayWaveSpawn(waveSpawn);
@@ -36,8 +52,10 @@ public class SpawnAnimal : MonoBehaviour
             amountOfAnimal = amountOfAnimalDefault + 1;
             amountOfAnimalDefault = amountOfAnimal;
             waveSpawn++;
+            
             SpawnAnimalWave(amountOfAnimal);
             EventBroker.CallDisplayWaveSpawn(waveSpawn);
+            
             if (waveSpawn > 0 && waveSpawn % 3 == 0 && isSpawnDragon == false)
             {
                 SpawnDragonWave();
@@ -48,6 +66,8 @@ public class SpawnAnimal : MonoBehaviour
 
     private void SpawnAnimalWave(int amountOfAnimal)
     {
+        SoundManager.Instance.PlayBattleSound(audioSource,SoundManager.Instance.GetRandomBattleSound());
+        
         for (int i = 0; i < amountOfAnimal; i++)
         {
             int x = Random.Range(0, listAnimals.Count);
@@ -59,6 +79,8 @@ public class SpawnAnimal : MonoBehaviour
 
     private void SpawnDragonWave()
     {
+        SoundManager.Instance.PlayBattleSound(audioSource,SoundManager.Instance.bossAppearSound);
+        
         GameObject dragonInstantiate = Instantiate(dragon, GenerateSpawnPosition(), dragon.transform.rotation);
         dragonInstantiate.GetComponent<Animal>().playerTransform = playerTransform;
     }
@@ -70,5 +92,10 @@ public class SpawnAnimal : MonoBehaviour
 
         Vector3 spawnPos = new Vector3(spawnPosX, 0, spawnPosZ);
         return spawnPos;
+    }
+
+    private void StopPlayMusic()
+    {
+        audioSource.Stop();
     }
 }

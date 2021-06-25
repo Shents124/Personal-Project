@@ -53,6 +53,8 @@ public class Dragon : Animal
             healthDragon += 50;
             EventBroker.CallUpdateScore(pointScore);
             EventBroker.CallUpdateCountAnimal();
+            
+            SoundManager.Instance.PlaySound(SoundManager.Instance.bossDead);
         }
     }
 
@@ -64,7 +66,6 @@ public class Dragon : Animal
         gameObject.GetComponent<SphereCollider>().enabled = false;
         gameObject.GetComponent<Rigidbody>().velocity = Vector3.zero;
         gameObject.GetComponent<Dragon>().enabled = false;
-
         SpawnAnimal.isSpawnDragon = false;
     }
 }
