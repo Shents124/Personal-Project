@@ -10,15 +10,13 @@ public class SpawnAnimal : MonoBehaviour
     public List<GameObject> listAnimals;
     public Transform playerTransform;
     private int maxSpawnRange = 60;
-    private float timeDelaySpawn = 1f;
-    private float startTimeDelay;
     private int waveSpawn;
 
     public static bool isSpawnDragon = false;
+
     private void Awake()
     {
         amountOfAnimal = amountOfAnimalDefault;
-        startTimeDelay = timeDelaySpawn;
     }
 
     // Start is called before the first frame update
@@ -35,21 +33,15 @@ public class SpawnAnimal : MonoBehaviour
     {
         if (amountOfAnimal == 0)
         {
-            startTimeDelay -= Time.deltaTime;
-            if (startTimeDelay <= 0)
+            amountOfAnimal = amountOfAnimalDefault + 1;
+            amountOfAnimalDefault = amountOfAnimal;
+            waveSpawn++;
+            SpawnAnimalWave(amountOfAnimal);
+            EventBroker.CallDisplayWaveSpawn(waveSpawn);
+            if (waveSpawn > 0 && waveSpawn % 3 == 0 && isSpawnDragon == false)
             {
-                waveSpawn++;
-                startTimeDelay = timeDelaySpawn;
-                amountOfAnimalDefault++;
-                amountOfAnimal = amountOfAnimalDefault;
-                SpawnAnimalWave(amountOfAnimalDefault);
-                Debug.Log(amountOfAnimalDefault);
-                EventBroker.CallDisplayWaveSpawn(waveSpawn);
-                if (waveSpawn > 0 && waveSpawn % 3 == 0 && isSpawnDragon == false)
-                {
-                    SpawnDragonWave();
-                    isSpawnDragon = true;
-                }
+                SpawnDragonWave();
+                isSpawnDragon = true;
             }
         }
     }
