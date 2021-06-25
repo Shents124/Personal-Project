@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-public class PlayerLife : MonoBehaviour,IDamageable
+public class PlayerLife : MonoBehaviour, IDamageable
 {
     public int currentHealth;
     private int maxHealth = 200;
@@ -25,17 +25,22 @@ public class PlayerLife : MonoBehaviour,IDamageable
             currentHealth = maxHealth;
         }
     }
-    
+
     public void TakeDame(int amoutOfDame)
     {
-        currentHealth -= amoutOfDame;
-        healthBar.SetHealth(currentHealth);
-        if (currentHealth <= 0)
+        if (isHasShield)
+            return;
+        else
         {
-            EventBroker.CallGameOver();
-            playerAnimator.SetBool("Death_b",true);
-            GetComponent<PlayerController>().enabled = false;
-            GetComponent<Shooting>().enabled = false;
+            currentHealth -= amoutOfDame;
+            healthBar.SetHealth(currentHealth);
+            if (currentHealth <= 0)
+            {
+                EventBroker.CallGameOver();
+                playerAnimator.SetBool("Death_b", true);
+                GetComponent<PlayerController>().enabled = false;
+                GetComponent<Shooting>().enabled = false;
+            }
         }
     }
 }

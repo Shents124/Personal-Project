@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 
 public class Animal : MonoBehaviour,IDamageable
@@ -14,10 +13,10 @@ public class Animal : MonoBehaviour,IDamageable
     protected Vector3 direction;
     private Rigidbody _animalRb;
     private float timeDelay;
-
+    
     protected virtual void OnEnable()
     {
-        timeDelay = 1f;
+        timeDelay = 1.5f;
         EventBroker.GameOver += StopFollowingPlayer;
     }
 

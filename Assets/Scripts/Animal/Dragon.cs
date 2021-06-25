@@ -9,6 +9,7 @@ public class Dragon : Animal
     private float flySpeed = 22f;
     
     private Animator dragonAnimator;
+    public ParticleSystem dirt;
     
     protected override void OnEnable()
     {
@@ -33,6 +34,7 @@ public class Dragon : Animal
         {
             dragonAnimator.SetBool("isRun",true);
             speed = runSpeed;
+            dirt.Play();
         }
 
         if (distanceToPlayer <= rangeAttack )

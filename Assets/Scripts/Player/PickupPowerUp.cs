@@ -11,6 +11,7 @@ public class PickupPowerUp : MonoBehaviour
     private float timeShootingTripleBullet;
 
     private bool isHasShield = false;
+    public ParticleSystem shieldEffect;
 
     private void Start()
     {
@@ -19,10 +20,13 @@ public class PickupPowerUp : MonoBehaviour
         timeShootingTripleBullet = timeCountDownPowerUp;
     }
 
-    private void FixedUpdate()
+    private void Update()
     {
-        if(isHasShield)
+        if (isHasShield)
+        {
             ProtectPlayer();
+        }
+
         if(powerUpType == PowerUpType.DoubleBullet)
             ShootingDoubleBullet();
         if(powerUpType == PowerUpType.TripleBullet)
@@ -47,6 +51,7 @@ public class PickupPowerUp : MonoBehaviour
         {
             DestroyGameObject(other.gameObject);
             isHasShield = true;
+            shieldEffect.Play();
         }
     }
 
@@ -65,6 +70,7 @@ public class PickupPowerUp : MonoBehaviour
             timeUsingShield = timeCountDownPowerUp;
             playerLife.isHasShield = false;
             isHasShield = false;
+            shieldEffect.Stop();
         }
     }
 
