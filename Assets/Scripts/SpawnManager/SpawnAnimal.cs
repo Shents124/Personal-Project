@@ -5,8 +5,7 @@ using Random = UnityEngine.Random;
 
 public class SpawnAnimal : MonoBehaviour
 {
-    public static int amountOfAnimal;
-    private int amountOfAnimalDefault = 5;
+    private int amountOfAnimalSpawn= 5;
     
     public GameObject dragon;
     public List<GameObject> listAnimals;
@@ -19,11 +18,6 @@ public class SpawnAnimal : MonoBehaviour
 
     private AudioSource audioSource;
     
-    private void Awake()
-    {
-        amountOfAnimal = amountOfAnimalDefault;
-    }
-
     private void OnEnable()
     {
         EventBroker.GameOver += StopPlayMusic;
@@ -38,7 +32,7 @@ public class SpawnAnimal : MonoBehaviour
     private void Start()
     {
         audioSource = GetComponent<AudioSource>();
-        SpawnAnimalWave(amountOfAnimal);
+        SpawnAnimalWave(amountOfAnimalSpawn);
         waveSpawn = 1;
         EventBroker.CallDisplayWaveSpawn(waveSpawn);
         isSpawnDragon = false;
@@ -47,13 +41,14 @@ public class SpawnAnimal : MonoBehaviour
     // Update is called once per frame
     private void Update()
     {
-        if (amountOfAnimal == 0)
+        int animalCount = FindObjectsOfType<Animal>().Length;
+        if (animalCount <= 0)
         {
-            amountOfAnimal = amountOfAnimalDefault + 1;
-            amountOfAnimalDefault = amountOfAnimal;
+            amountOfAnimalSpawn++;
+            if (amountOfAnimalSpawn >= 20)
+                amountOfAnimalSpawn = 20;
             waveSpawn++;
-            
-            SpawnAnimalWave(amountOfAnimal);
+            SpawnAnimalWave(amountOfAnimalSpawn);
             EventBroker.CallDisplayWaveSpawn(waveSpawn);
             
             if (waveSpawn > 0 && waveSpawn % 3 == 0 && isSpawnDragon == false)

@@ -47,6 +47,12 @@ public class PauseUI : MonoBehaviour
         pauseMenu.SetActive(true);
         isGamePaused = true;
         staminaUI.SetActive(false);
+
+        AudioSource[] audioSource = FindObjectsOfType<AudioSource>();
+        foreach (var item in audioSource)
+        {
+            item.Pause();
+        }
     }
 
     public void ResumeGame()
@@ -55,6 +61,12 @@ public class PauseUI : MonoBehaviour
         pauseMenu.SetActive(false);
         isGamePaused = false;
         staminaUI.SetActive(true);
+        
+        AudioSource[] audioSource = FindObjectsOfType<AudioSource>();
+        foreach (var item in audioSource)
+        {
+            item.Play();
+        }
     }
 
     public void BackToMenu()

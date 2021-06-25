@@ -1,7 +1,7 @@
 using System.Collections;
 using UnityEngine;
 
-public class Dog : Animal
+public class Dog : Animal,IDamageable
 {
     private AudioSource audioSource;
     
@@ -14,6 +14,16 @@ public class Dog : Animal
         base.OnEnable();
     }
 
+    public void TakeDame(int amoutOfDame)
+    {
+        currentHealth -= amoutOfDame;
+        if (currentHealth <= 0)
+        {
+            Destroy(gameObject);
+            EventBroker.CallUpdateScore(pointScore);
+        }
+    }
+    
     IEnumerator PlaySound()
     {
         audioSource.Play();

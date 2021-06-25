@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class Dragon : Animal
+public class Dragon : Animal,IDamageable
 {
     private float maxDistanceRange = 20f;
     private float minDistanceRange = 15f;
@@ -44,7 +44,7 @@ public class Dragon : Animal
         }
     }
 
-    public override void TakeDame(int amoutOfDame)
+    public void TakeDame(int amoutOfDame)
     {
         currentHealth -= amoutOfDame;
         if (currentHealth <= 0)
@@ -52,8 +52,6 @@ public class Dragon : Animal
             DestroyGameObject();
             healthDragon += 50;
             EventBroker.CallUpdateScore(pointScore);
-            EventBroker.CallUpdateCountAnimal();
-            
             SoundManager.Instance.PlaySound(SoundManager.Instance.bossDead);
         }
     }

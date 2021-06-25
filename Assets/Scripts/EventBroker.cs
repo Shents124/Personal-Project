@@ -3,7 +3,6 @@ using System;
 public class EventBroker
 {
     public static Action<int> UpdateScore;
-    public static Action UpdateCountAnimal;
     public static Action GameOver;
     public static Action<WeaponFoodType> PickupWeaponFood;
     public static Action<int> DisplayWaveSpawn;
@@ -11,11 +10,7 @@ public class EventBroker
     {
         UpdateScore?.Invoke(score);
     }
-    public static void CallUpdateCountAnimal()
-    {
-        UpdateCountAnimal?.Invoke();
-    }
-
+    
     public static void CallGameOver()
     {
         GameOver?.Invoke();

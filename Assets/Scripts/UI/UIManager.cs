@@ -5,14 +5,10 @@ using UnityEngine;
 public class UIManager : MonoBehaviour
 {
     public TextMeshProUGUI score;
-
-    public TextMeshProUGUI animalCount;
-
     public TextMeshProUGUI currentWeapon;
     public TextMeshProUGUI waveSpawnAnimal;
 
     private int totalScore;
-    private int totalCount;
     private int highScore;
 
     private void Start()
@@ -23,7 +19,6 @@ public class UIManager : MonoBehaviour
     private void OnEnable()
     {
         EventBroker.UpdateScore += UpdateScore;
-        EventBroker.UpdateCountAnimal += UpdateCountAnimal;
         EventBroker.PickupWeaponFood += DisplayCurrentWeapon;
         EventBroker.DisplayWaveSpawn += DisplayWaveSpawn;
     }
@@ -31,7 +26,6 @@ public class UIManager : MonoBehaviour
     private void OnDisable()
     {
         EventBroker.UpdateScore -= UpdateScore;
-        EventBroker.UpdateCountAnimal -= UpdateCountAnimal;
         EventBroker.PickupWeaponFood -= DisplayCurrentWeapon;
         EventBroker.DisplayWaveSpawn -= DisplayWaveSpawn;
     }
@@ -46,13 +40,7 @@ public class UIManager : MonoBehaviour
             GameManager.Instance.SaveScore(highScore);
         }
     }
-
-    private void UpdateCountAnimal()
-    {
-        totalCount++;
-        animalCount.text = "Count: " + totalCount;
-    }
-
+    
     private void DisplayCurrentWeapon(WeaponFoodType weaponFoodType)
     {
         currentWeapon.text = "Weapon: " + weaponFoodType;

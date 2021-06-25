@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class Animal : MonoBehaviour,IDamageable
+public class Animal : MonoBehaviour
 {
     public static int healthDragon = 200;
     [SerializeField] protected float speed;
@@ -10,6 +10,7 @@ public class Animal : MonoBehaviour,IDamageable
     protected int maxHealth;
     [SerializeField] protected int pointScore;
     [SerializeField] protected int dame = 5;
+    
     protected Vector3 direction;
     private Rigidbody _animalRb;
     private float timeDelay;
@@ -54,19 +55,7 @@ public class Animal : MonoBehaviour,IDamageable
         // Add velocity
         _animalRb.velocity = direction * speed;
     }
-
-    public virtual void TakeDame(int amoutOfDame)
-    {
-        currentHealth -= amoutOfDame;
-        if (currentHealth <= 0)
-        {
-            Destroy(gameObject);
-            SpawnAnimal.amountOfAnimal--;
-            EventBroker.CallUpdateScore(pointScore);
-            EventBroker.CallUpdateCountAnimal();
-        }
-    }
-
+    
     private void StopFollowingPlayer()
     {
         gameObject.GetComponent<Animal>().enabled = false;
