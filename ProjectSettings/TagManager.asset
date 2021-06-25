@@ -9,6 +9,7 @@ TagManager:
   - PowerUp
   - Protection
   - HealthUp
+  - FxTemporaire
   layers:
   - Default
   - TransparentFX
@@ -16,8 +17,8 @@ TagManager:
   - Ground
   - Water
   - UI
-  - 
-  - 
+  - Player
+  - Food
   - PostProcessing
   - 
   - 
