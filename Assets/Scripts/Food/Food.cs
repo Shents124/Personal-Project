@@ -1,20 +1,20 @@
-using System;
 using UnityEngine;
 
 public class Food : MonoBehaviour
 {
-    private float speed = 50f;
-    [SerializeField] protected int dame;
-    private string targetTag = "Animal";
-    private float boundaryDestroy = 50f;
-    [SerializeField] private GameObject hitEffect;
-
     public Vector3 moveDirection;
     public Vector3 playerPosition;
     
+    [SerializeField] protected int dame;
+    [SerializeField] private GameObject hitEffect;
+    
+    private float speed = 50f;
+    private string targetTag = "Animal";
+    private float boundaryDestroy = 50f;
+    
     private void FixedUpdate()
     {
-        transform.Translate(moveDirection * speed * Time.deltaTime);
+        transform.Translate(moveDirection * (speed * Time.deltaTime));
         DestroyOutOfBound();
     }
 

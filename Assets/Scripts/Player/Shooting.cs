@@ -1,17 +1,16 @@
 using UnityEngine;
+
 public class Shooting : MonoBehaviour
 {
-    [SerializeField] private Transform shootingPos;
-
-    [SerializeField] private Transform shootingPosDoubleFirst;
-
-    [SerializeField] private Transform shootingPosDoubleSecond;
-
     public bool isShootingDouble = false;
-
     public bool isShootingTriple = false;
+    
+    [SerializeField] private Transform shootingPos;
+    [SerializeField] private Transform shootingPosDoubleFirst;
+    [SerializeField] private Transform shootingPosDoubleSecond;
+    
     // Update is called once per frame
-    void Update()
+    private void Update()
     {
        if(Input.GetButtonDown("Fire1"))
            Shoot();
@@ -56,11 +55,13 @@ public class Shooting : MonoBehaviour
         bullet1.transform.position = shootingPosDoubleFirst.position;
         bullet2.transform.position = shootingPosDoubleSecond.position;
         
+        var position = transform.position;
+        
         bullet1.GetComponent<Food>().moveDirection = fireDirection;
-        bullet1.GetComponent<Food>().playerPosition = transform.position;
+        bullet1.GetComponent<Food>().playerPosition = position;
         
         bullet2.GetComponent<Food>().moveDirection = fireDirection;
-        bullet2.GetComponent<Food>().playerPosition = transform.position;
+        bullet2.GetComponent<Food>().playerPosition = position;
     }
 
     private void ShootingTripleBullet(Vector3 fireDirection)
@@ -69,22 +70,24 @@ public class Shooting : MonoBehaviour
         GameObject bullet2 = PoolManager.Instance.RequestFood();
         GameObject bullet3 = PoolManager.Instance.RequestFood();
 
-        bullet1.transform.position = shootingPos.position;
-        bullet2.transform.position = shootingPos.position;
-        bullet3.transform.position = shootingPos.position;
+        var position = shootingPos.position;
+        bullet1.transform.position = position;
+        bullet2.transform.position = position;
+        bullet3.transform.position = position;
 
+        var position1 = transform.position;
         Vector3 fireDirectionLeft = Quaternion.AngleAxis(-15, Vector3.up) * fireDirection;
         
         bullet1.GetComponent<Food>().moveDirection = fireDirectionLeft;
-        bullet1.GetComponent<Food>().playerPosition = transform.position;
+        bullet1.GetComponent<Food>().playerPosition = position1;
         
         Vector3 fireDirectionRight = Quaternion.AngleAxis(15, Vector3.up) * fireDirection;
         
         bullet2.GetComponent<Food>().moveDirection = fireDirectionRight;
-        bullet2.GetComponent<Food>().playerPosition = transform.position;
+        bullet2.GetComponent<Food>().playerPosition = position1;
         
         bullet3.GetComponent<Food>().moveDirection = fireDirection;
-        bullet3.GetComponent<Food>().playerPosition = transform.position;
+        bullet3.GetComponent<Food>().playerPosition = position1;
     }
 }
 

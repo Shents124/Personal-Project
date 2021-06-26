@@ -3,16 +3,16 @@ using UnityEngine;
 public class PickupPowerUp : MonoBehaviour
 {
     public PowerUpType powerUpType;
-    private string powerUp = "PowerUp";
+    public ParticleSystem shieldEffect;
+    
     private int healthUpPoint = 50;
     private float timeCountDownPowerUp = 10f;
     private float timeUsingShield;
     private float timeShootingDoubleBullet;
     private float timeShootingTripleBullet;
-
+    private string powerUp = "PowerUp";
     private bool isHasShield = false;
-    public ParticleSystem shieldEffect;
-
+    
     private void Start()
     {
         timeUsingShield = timeCountDownPowerUp;
@@ -111,6 +111,6 @@ public class PickupPowerUp : MonoBehaviour
     private void DestroyGameObject(GameObject other)
     {
         Destroy(other);
-        SpawnPowerUp.amountOfPowerUp--;
+        SpawnPowerUpManager.amountOfPowerUp--;
     }
 }

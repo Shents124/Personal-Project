@@ -1,15 +1,16 @@
-using UnityEngine;
 using System.Collections.Generic;
+using UnityEngine;
 
-public class SpawnPowerUp : MonoBehaviour
+public class SpawnWeaponManager : MonoBehaviour
 {
-    public static int amountOfPowerUp;
-    public List<GameObject> powerUps;
+    public List<GameObject> weapons;
 
     private int maxSpawnRange = 60;
-    private int maxPowerUpSpawn = 4;
+    private int maxWeaponSpawn = 5;
     private float timeDelay = 20f;
     private float startTimeDelay;
+    
+    public static int amountOfWeapon;
     
     // Start is called before the first frame update
     void Start()
@@ -21,18 +22,18 @@ public class SpawnPowerUp : MonoBehaviour
     void Update()
     {
         startTimeDelay -= Time.deltaTime;
-        if (startTimeDelay <= 0 && amountOfPowerUp < maxPowerUpSpawn)
+        if (startTimeDelay <= 0 && amountOfWeapon < maxWeaponSpawn)
         {
-            SpawnPowerUpWave();
-            amountOfPowerUp++;
+            SpawnWeaponWave();
+            amountOfWeapon++;
             startTimeDelay = timeDelay;
         }
     }
 
-    private void SpawnPowerUpWave()
+    private void SpawnWeaponWave()
     {
-        int index = Random.Range(0, powerUps.Count);
-        Instantiate(powerUps[index], GeneratePosition(), powerUps[index].transform.rotation);
+        int index = Random.Range(0, weapons.Count);
+        Instantiate(weapons[index], GeneratePosition(), weapons[index].transform.rotation);
     }
 
     private Vector3 GeneratePosition()

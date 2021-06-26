@@ -8,6 +8,7 @@ using UnityEngine.SceneManagement;
 public class MenuUI : MonoBehaviour
 {
     public TextMeshProUGUI highScoreText;
+    
     private int highScore;
 
     private void Start()

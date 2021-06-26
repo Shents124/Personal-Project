@@ -6,9 +6,9 @@ public class Cow : Animal,IDamageable
         currentHealth = maxHealth;
         base.OnEnable();
     }
-    public void TakeDame(int amoutOfDame)
+    public void TakeDame(int amountOfDame)
     {
-        currentHealth -= amoutOfDame;
+        currentHealth -= amountOfDame;
         if (currentHealth <= 0)
         {
             Destroy(gameObject);

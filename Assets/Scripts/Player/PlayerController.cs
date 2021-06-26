@@ -2,29 +2,26 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    [SerializeField] private float speed;
-    private float speedDefault = 650f;
+    public StaminaUI staminaUI;
     public LayerMask ground;
     
-    private float horizontalInput;
-    private float verticalInput;
-
-    private float speedMultiplier = 1.5f;
-    private bool isSpeedUp = false;
-    
-    private float maxDistance = 50f;
-    
-    private Rigidbody _playerRb;
-
+    [SerializeField] private float speed;
     [SerializeField] private float currentStamina;
     [SerializeField] private float maxStamina = 50;
-    public StaminaUI staminaUI;
+    
+    private float speedDefault = 650f;
+    private float horizontalInput;
+    private float verticalInput;
+    private float speedMultiplier = 1.5f;
+    private bool isSpeedUp = false;
+    private float maxDistance = 50f;
+    private Rigidbody playerRb;
     private bool isHasStamina = true;
     
     // Start is called before the first frame update
     private void Start()
     {
-        _playerRb = GetComponent<Rigidbody>();
+        playerRb = GetComponent<Rigidbody>();
         currentStamina = maxStamina;
         speed = speedDefault;
     }
@@ -64,7 +61,7 @@ public class PlayerController : MonoBehaviour
 
     private void Move()
     {
-        _playerRb.velocity = new Vector3(horizontalInput * Time.deltaTime, _playerRb.velocity.y,
+        playerRb.velocity = new Vector3(horizontalInput * Time.deltaTime, playerRb.velocity.y,
             verticalInput * Time.deltaTime);
     }
 

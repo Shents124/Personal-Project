@@ -1,6 +1,5 @@
 using UnityEngine;
 
-
 public class SoundManager : MonoBehaviour
 {
     public AudioClip[] battleSounds;
@@ -9,7 +8,9 @@ public class SoundManager : MonoBehaviour
     public AudioClip bossDead;
     public AudioClip gameOver;
     public AudioClip hitSound;
+    
     private AudioSource audioSource;
+    
     private static SoundManager _instance;
     public static SoundManager Instance
     {
@@ -33,11 +34,11 @@ public class SoundManager : MonoBehaviour
         audioSource = GetComponent<AudioSource>();
     }
     
-    public void PlayBattleSound(AudioSource audioSource, AudioClip sound)
+    public void PlayBattleSound(AudioSource aSource, AudioClip sound)
     {
-        audioSource.clip = sound;
-        audioSource.Play();
-        audioSource.loop = true;
+        aSource.clip = sound;
+        aSource.Play();
+        aSource.loop = true;
     }
     
     public void PlaySound(AudioClip sound)

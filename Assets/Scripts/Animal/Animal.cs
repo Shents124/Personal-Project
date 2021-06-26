@@ -2,17 +2,18 @@ using UnityEngine;
 
 public class Animal : MonoBehaviour
 {
-    public static int healthDragon = 200;
-    [SerializeField] protected float speed;
     public Transform playerTransform;
-
-    protected int currentHealth;
-    protected int maxHealth;
+    
     [SerializeField] protected int pointScore;
     [SerializeField] protected int dame = 5;
+    [SerializeField] protected float speed;
     
-    protected Vector3 direction;
-    private Rigidbody _animalRb;
+    protected int currentHealth;
+    protected int maxHealth;
+    protected int healthDragon = 200;
+    
+    private Vector3 direction;
+    private Rigidbody animalRb;
     private float timeDelay;
     
     protected virtual void OnEnable()
@@ -31,7 +32,7 @@ public class Animal : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        _animalRb = GetComponentInChildren<Rigidbody>();
+        animalRb = GetComponentInChildren<Rigidbody>();
     }
 
     protected virtual void Update()
@@ -53,7 +54,7 @@ public class Animal : MonoBehaviour
     {
         direction = (playerTransform.position - transform.position).normalized;
         // Add velocity
-        _animalRb.velocity = direction * speed;
+        animalRb.velocity = direction * speed;
     }
     
     private void StopFollowingPlayer()
@@ -64,9 +65,10 @@ public class Animal : MonoBehaviour
 
     private void StopPlaySoundEffect()
     {
-        if (GetComponent<AudioSource>() != null)
+        AudioSource audioSource = GetComponent<AudioSource>();
+        if (audioSource != null)
         {
-            GetComponent<AudioSource>().Stop();
+            audioSource.Stop();
         }
     }
 

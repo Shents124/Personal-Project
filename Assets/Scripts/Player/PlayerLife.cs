@@ -1,17 +1,19 @@
-using System;
 using UnityEngine;
 
 public class PlayerLife : MonoBehaviour, IDamageable
 {
     public int currentHealth;
-    private int maxHealth = 200;
     public HealthBar healthBar;
     public bool isHasShield = false;
 
+    private int maxHealth = 200;
+    
     private Animator playerAnimator;
+    
+    private static readonly int DeathB = Animator.StringToHash("Death_b");
 
     // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
         currentHealth = maxHealth;
         healthBar.SetMaxHealth(maxHealth);
@@ -26,18 +28,18 @@ public class PlayerLife : MonoBehaviour, IDamageable
         }
     }
 
-    public void TakeDame(int amoutOfDame)
+    public void TakeDame(int amountOfDame)
     {
         if (isHasShield)
             return;
         else
         {
-            currentHealth -= amoutOfDame;
+            currentHealth -= amountOfDame;
             healthBar.SetHealth(currentHealth);
             if (currentHealth <= 0)
             {
                 EventBroker.CallGameOver();
-                playerAnimator.SetBool("Death_b", true);
+                playerAnimator.SetBool(DeathB, true);
                 GetComponent<PlayerController>().enabled = false;
                 GetComponent<Shooting>().enabled = false;
                 

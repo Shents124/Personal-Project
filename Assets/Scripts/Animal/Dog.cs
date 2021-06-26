@@ -14,17 +14,17 @@ public class Dog : Animal,IDamageable
         base.OnEnable();
     }
 
-    public void TakeDame(int amoutOfDame)
+    public void TakeDame(int amountOfDame)
     {
-        currentHealth -= amoutOfDame;
+        currentHealth -= amountOfDame;
         if (currentHealth <= 0)
         {
             Destroy(gameObject);
             EventBroker.CallUpdateScore(pointScore);
         }
     }
-    
-    IEnumerator PlaySound()
+
+    private IEnumerator PlaySound()
     {
         audioSource.Play();
         yield return new WaitForSeconds(3f);

@@ -1,4 +1,3 @@
-using System;
 using TMPro;
 using UnityEngine;
 
@@ -46,11 +45,12 @@ public class UIManager : MonoBehaviour
         currentWeapon.text = "Weapon: " + weaponFoodType;
     }
 
+    // ReSharper disable Unity.PerformanceAnalysis
     private void DisplayWaveSpawn(int waveSpawn)
     {
         waveSpawnAnimal.text = "Wave " + waveSpawn;
         waveSpawnAnimal.gameObject.SetActive(true);
-        Invoke("TurnOffWaveSpawn",1);
+        Invoke(nameof(TurnOffWaveSpawn),1f);
     }
 
     private void TurnOffWaveSpawn()

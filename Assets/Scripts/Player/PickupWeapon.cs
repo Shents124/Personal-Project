@@ -3,6 +3,7 @@ using UnityEngine;
 public class PickupWeapon : MonoBehaviour
 {
     public WeaponFoodType weaponFoodType;
+    
     private string weaponTag = "WeaponPickup";
     private float timeCountDownCookie = 15f;
     private float timeCountDownSandwich = 10f;
@@ -22,7 +23,7 @@ public class PickupWeapon : MonoBehaviour
             weaponFoodType = other.GetComponent<WeaponFoodPickup>().weaponFoodType;
             Destroy(other.gameObject);
             EventBroker.CallPickupWeaponFood(weaponFoodType);
-            SpawnWeapon.amountOfWeapon--;
+            SpawnWeaponManager.amountOfWeapon--;
         }
     }
 

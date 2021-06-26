@@ -3,8 +3,13 @@ using UnityEngine;
 
 public class PoolManager : MonoBehaviour
 {
+    public GameObject[] foodPrefabs;
+    public Transform container;
+    
+    private List<GameObject> listFood;
+    private int amountOfGenerate = 10;
+    
     private static PoolManager _instance;
-
     public static PoolManager Instance
     {
         get
@@ -15,13 +20,6 @@ public class PoolManager : MonoBehaviour
         }
     }
     
-    private List<GameObject> listFood;
-
-    public GameObject[] foodPrefabs;
-
-    public Transform container;
-
-    private int amountOfGenerate = 10;
     private void Awake()
     {
         _instance = this;
@@ -38,7 +36,7 @@ public class PoolManager : MonoBehaviour
     }
 
     // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
         // Generate list contains 10 game objects
         listFood = GenerateFood(amountOfGenerate,foodPrefabs[0]);
@@ -49,8 +47,7 @@ public class PoolManager : MonoBehaviour
         List<GameObject> newList = new List<GameObject>();
         for (int i = 0; i < amount; i++)
         {
-            GameObject food = Instantiate(foodPrefab);
-            food.transform.parent = container;
+            GameObject food = Instantiate(foodPrefab, container, true);
             food.SetActive(false);
             newList.Add(food);
         }
@@ -76,8 +73,7 @@ public class PoolManager : MonoBehaviour
             }
         }
 
-        GameObject newFood = Instantiate(listFood[0]);
-        newFood.transform.parent = container;
+        GameObject newFood = Instantiate(listFood[0], container, true);
         listFood.Add(newFood);
         return newFood;
     }

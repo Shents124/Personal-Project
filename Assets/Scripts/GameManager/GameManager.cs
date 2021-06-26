@@ -5,7 +5,6 @@ using System.IO;
 public class GameManager : MonoBehaviour
 {
     private static GameManager _instance;
-
     public static GameManager Instance
     {
         get
@@ -15,8 +14,6 @@ public class GameManager : MonoBehaviour
             return _instance;
         }
     }
-
-
     private void Awake()
     {
         if (_instance != null)
@@ -28,7 +25,7 @@ public class GameManager : MonoBehaviour
         _instance = this;
         DontDestroyOnLoad(gameObject);
     }
-
+    
     [System.Serializable]
     class SaveData
     {

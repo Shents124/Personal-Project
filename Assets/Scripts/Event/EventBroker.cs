@@ -24,5 +24,4 @@ public class EventBroker
     {
         DisplayWaveSpawn?.Invoke(waveSpawn);
     }
-    
 }

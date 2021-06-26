@@ -9,8 +9,8 @@
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/UI/StaminaUI.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/SpawnManager/SpawnWeapon.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/SpawnManager/SpawnPowerUp.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/SpawnManager/SpawnWeaponManager.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/SpawnManager/SpawnPowerUpManager.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Player/PickupPowerUp.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
@@ -18,34 +18,41 @@
       <option value="$PROJECT_DIR$/Assets/Scripts/SpawnManager/SpawnManager.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/IDamageable.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/UIManager/UIManager.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/UI/HealthBar.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/UI/StaminaUI.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Player/Pickup.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/PoolManager/PoolManager.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/Player/Shooting.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/PowerUp/PowerUp.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/SpawnManager/SpawnPowerUp.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/SpawnManager/SpawnWeapon.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/Player/PickupWeapon.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/Player/PlayerController.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Cursor.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/UI/MenuUI.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/GameManager.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Utility/MonoSingleton.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/Food/Food.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/Player/PlayerLife.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/SoundManager/SoundManager.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/Player/PickupPowerUp.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/Animal/Dragon.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/SpawnManager/SpawnAnimal.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/EventBroker.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/UI/UIManager.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/Animal/Horse.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/Animal/Stag.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Animal/Cow.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Animal/Dragon.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Animal/Stag.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Animal/Dog.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/Animal/Animal.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/GameManager/GameManager.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Player/PickupWeapon.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Player/PickupPowerUp.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Player/PlayerController.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Player/PlayerLife.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/PoolManager/PoolManager.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/UI/PauseUI.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/UI/UIManager.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/UI/MenuUI.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/UI/HealthBar.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/WeaponFoodPickup/WeaponFoodPickup.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/SpawnManager/SpawnWeaponManager.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/SpawnManager/SpawnPowerUpManager.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/SoundManager/SoundManager.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Player/Shooting.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Event/EventBroker.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Food/Food.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Camera/CameraFollowPlayer.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Animal/Horse.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Animal/Animal.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/SpawnManager/SpawnAnimalManager.cs" />
     </changedPaths>
   </component>
   <component name="ProjectId" id="1uGE8DyVTUs12M8EH0KoJ5cS6jj" />
@@ -101,6 +108,7 @@
       <workItem from="1624605485672" duration="621000" />
       <workItem from="1624611006217" duration="5303000" />
       <workItem from="1624627984387" duration="3725000" />
+      <workItem from="1624668945466" duration="7099000" />
     </task>
     <servers />
   </component>

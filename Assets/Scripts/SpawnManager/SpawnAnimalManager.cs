@@ -1,22 +1,19 @@
-using System;
 using System.Collections.Generic;
 using UnityEngine;
-using Random = UnityEngine.Random;
 
-public class SpawnAnimal : MonoBehaviour
+public class SpawnAnimalManager : MonoBehaviour
 {
-    private int amountOfAnimalSpawn= 5;
-    
     public GameObject dragon;
     public List<GameObject> listAnimals;
     public Transform playerTransform;
     
+    private int amountOfAnimalSpawn= 5;
+    private int maxAmountOfAnimalSpawn = 20;
     private int maxSpawnRange = 60;
     private int waveSpawn;
-
-    public static bool isSpawnDragon = false;
-
     private AudioSource audioSource;
+    
+    public static bool isSpawnDragon = false;
     
     private void OnEnable()
     {
@@ -45,16 +42,15 @@ public class SpawnAnimal : MonoBehaviour
         if (animalCount <= 0)
         {
             amountOfAnimalSpawn++;
-            if (amountOfAnimalSpawn >= 20)
-                amountOfAnimalSpawn = 20;
+            if (amountOfAnimalSpawn >= maxAmountOfAnimalSpawn)
+                amountOfAnimalSpawn = maxAmountOfAnimalSpawn;
             waveSpawn++;
             SpawnAnimalWave(amountOfAnimalSpawn);
             EventBroker.CallDisplayWaveSpawn(waveSpawn);
             
-            if (waveSpawn > 0 && waveSpawn % 3 == 0 && isSpawnDragon == false)
+            if (IsSpawnDragonWave())
             {
                 SpawnDragonWave();
-                isSpawnDragon = true;
             }
         }
     }
@@ -89,6 +85,16 @@ public class SpawnAnimal : MonoBehaviour
         return spawnPos;
     }
 
+    private bool IsSpawnDragonWave()
+    {
+        if (waveSpawn % 3 == 0 && isSpawnDragon == false)
+        {
+            isSpawnDragon = true;
+            return true;
+        }
+        return false;
+    }
+    
     private void StopPlayMusic()
     {
         audioSource.Stop();

@@ -7,11 +7,12 @@ using UnityEngine.SceneManagement;
 
 public class PauseUI : MonoBehaviour
 {
-    private bool isGamePaused = false;
     public GameObject pauseMenu;
     public GameObject gameOver;
     public GameObject staminaUI;
-
+    
+    private bool isGamePaused = false;
+    
     private void OnEnable()
     {
         EventBroker.GameOver += DisplayGameOver;
@@ -22,7 +23,7 @@ public class PauseUI : MonoBehaviour
         EventBroker.GameOver -= DisplayGameOver;
     }
 
-    void Update()
+    private void Update()
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
