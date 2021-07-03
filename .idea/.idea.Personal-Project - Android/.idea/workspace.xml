@@ -24,7 +24,6 @@
       <option value="$PROJECT_DIR$/Assets/Scripts/Player/Shooting.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/UI/SpeedUpManager.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/UI/SpeedUpUI.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/Player/PlayerController.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/UI/PauseUI.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/UI/UIManager.cs" />
       <option value="$PROJECT_DIR$/Assets/ScriptableObjects/FloatVariables.cs" />
@@ -35,20 +34,22 @@
       <option value="$PROJECT_DIR$/Assets/ScriptableObjects/Food/FoodData.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Food/Food.cs" />
       <option value="$PROJECT_DIR$/Assets/ScriptableObjects/DataAnimal/DataAnimal.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/Animal/Dragon.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/UI/MenuUI.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Player/PlayerLife.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Player/PickupPowerUp.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Animal/AnimalHealthBar.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Animal/Cow.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/Animal/Animal.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Animal/Dog.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Animal/Horse.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Animal/Stag.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/UI/MenuUI.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/PowerUp/HealthUp.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/Player/PlayerLife.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/Player/PickupPowerUp.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Animal/Animal.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Animal/Dragon.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Player/PlayerController.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/PowerUp/Shield.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/PowerUp/PowerUp.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/PowerUp/TripleFood.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/PowerUp/HealthUp.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/PowerUp/DoubleFood.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/PowerUp/TripleFood.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/PowerUp/PowerUp.cs" />
     </changedPaths>
   </component>
   <component name="ProjectId" id="1uhBO76LMQVVwe0Pq7QaV28IAd2" />
@@ -98,6 +99,8 @@
       <workItem from="1625188398637" duration="4024000" />
       <workItem from="1625218066972" duration="3145000" />
       <workItem from="1625231953192" duration="5147000" />
+      <workItem from="1625278308786" duration="3822000" />
+      <workItem from="1625297994846" duration="4858000" />
     </task>
     <servers />
   </component>

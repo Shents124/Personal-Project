@@ -1,16 +1,15 @@
+using System.Collections;
 using UnityEngine;
 public class TripleFood : PowerUp
 {
-    protected override void EffectToPlayer(GameObject player)
+    protected override IEnumerator EffectToPlayer(GameObject player)
     {
         Shooting playerShooting = player.GetComponent<Shooting>();
         playerShooting.isShootingTriple = true;
         playerShooting.isShootingDouble = false;
-        timeCountDownPowerUp -= Time.deltaTime;
         
-        if (timeCountDownPowerUp <= 0)
-        {
-            playerShooting.isShootingTriple = false;
-        }
+        yield return new WaitForSeconds(timeCountDownPowerUp);
+        playerShooting.isShootingTriple = false;
+        Destroy(this.gameObject);
     }
 }

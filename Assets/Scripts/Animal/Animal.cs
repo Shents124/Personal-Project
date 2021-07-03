@@ -7,7 +7,8 @@ public class Animal : MonoBehaviour
     
     protected float currentHealth;
     protected float maxHealth;
-    protected int healthDragon = 200;
+    protected float healthDragon = 200;
+    protected AnimalHealthBar animalHealthBar;
     
     private Vector3 direction;
     private Rigidbody animalRb;
@@ -17,6 +18,11 @@ public class Animal : MonoBehaviour
     {
         timeDelay = 1.5f;
         EventBroker.GameOver += StopFollowingPlayer;
+        
+        animalHealthBar = gameObject.GetComponentInChildren<AnimalHealthBar>();
+        animalHealthBar.SetMaxHealth(maxHealth);
+        if(maxHealth < healthDragon)
+            animalHealthBar.gameObject.SetActive(false);
     }
 
     private void OnDisable()
@@ -34,6 +40,7 @@ public class Animal : MonoBehaviour
     {
         // Look at player
         this.transform.LookAt(playerTransform);
+        animalHealthBar.UpdateHealth(currentHealth);
     }
 
     private void FixedUpdate()

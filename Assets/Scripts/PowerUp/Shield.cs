@@ -1,18 +1,17 @@
+using System.Collections;
 using UnityEngine;
 
 public class Shield : PowerUp
 {
-   protected override void EffectToPlayer(GameObject player)
-   {
-      PlayerLife playerLife = player.GetComponent<PlayerLife>();
-      playerLife.isHasShield = true;
-      playerLife.shieldEffect.Play();
-      timeCountDownPowerUp -= Time.deltaTime;
+    protected override IEnumerator EffectToPlayer(GameObject player)
+    {
+        PlayerLife playerLife = player.GetComponent<PlayerLife>();
+        playerLife.isHasShield = true;
+        playerLife.shieldEffect.Play();
         
-      if (timeCountDownPowerUp <= 0)
-      {
-         playerLife.isHasShield = false;
-         playerLife.shieldEffect.Stop();
-      }
-   }
+        yield return new WaitForSeconds(timeCountDownPowerUp);
+        playerLife.isHasShield = false;
+        playerLife.shieldEffect.Stop();
+        Destroy(this.gameObject);
+    }
 }

@@ -199,7 +199,6 @@ GameObject:
   - component: {fileID: 3781335956005275081}
   - component: {fileID: 2044027621}
   - component: {fileID: 3591283269180557224}
-  - component: {fileID: 20224789909338907}
   - component: {fileID: 2044027627}
   m_Layer: 6
   m_Name: Player
@@ -289,13 +288,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8e09605d6552efe4a9e96feb97206d34, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 650
+  staminaUI: {fileID: 0}
+  speedUpUI: {fileID: 0}
   ground:
     serializedVersion: 2
     m_Bits: 8
-  currentStamina: 0
-  maxStamina: 5
-  staminaUI: {fileID: 0}
+  leftJoystick: {fileID: 0}
 --- !u!114 &2044027621
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -308,11 +306,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 531af76d09706454d9b86b43c23a80fb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isShootingDouble: 0
+  isShootingTriple: 0
+  rightJoystick: {fileID: 0}
   shootingPos: {fileID: 715828662}
   shootingPosDoubleFirst: {fileID: 2050653815}
   shootingPosDoubleSecond: {fileID: 1355550187}
-  isShootingDouble: 0
-  isShootingTriple: 0
+  shootTimeDelay: 0.2
 --- !u!114 &3591283269180557224
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -326,20 +326,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weaponFoodType: 0
---- !u!114 &20224789909338907
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3781335956143508107}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0cd2bbed2685b6149bfb2284e84a9eaa, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  powerUpType: 0
-  shieldEffect: {fileID: 3525905530483858507}
 --- !u!114 &2044027627
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -352,7 +338,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bd7de2b3baa65bf4e8cac915bfb03f76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentHealth: 0
+  currentHealth: {fileID: 0}
+  maxHealth:
+    useConstant: 1
+    constantValue: 0
+    variable: {fileID: 0}
+  shieldEffect: {fileID: 0}
   healthBar: {fileID: 0}
   isHasShield: 0
 --- !u!1 &3781335956143508111
@@ -1534,12 +1525,6 @@ PrefabInstance:
 --- !u!4 &3612462575717867449 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4159976647224570, guid: b0bc1b6b391734647b9bb142bafc0819,
-    type: 3}
-  m_PrefabInstance: {fileID: 3615489900433552195}
-  m_PrefabAsset: {fileID: 0}
---- !u!198 &3525905530483858507 stripped
-ParticleSystem:
-  m_CorrespondingSourceObject: {fileID: 198796712453205768, guid: b0bc1b6b391734647b9bb142bafc0819,
     type: 3}
   m_PrefabInstance: {fileID: 3615489900433552195}
   m_PrefabAsset: {fileID: 0}

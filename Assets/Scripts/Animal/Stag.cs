@@ -8,6 +8,8 @@ public class Stag : Animal,IDamageable
     }
     public void TakeDame(int amountOfDame)
     {
+        if(animalHealthBar.gameObject.activeInHierarchy == false)
+            animalHealthBar.gameObject.SetActive(true);
         currentHealth -= amountOfDame;
         if (currentHealth <= 0)
         {

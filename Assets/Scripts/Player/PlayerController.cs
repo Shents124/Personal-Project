@@ -20,12 +20,16 @@ public class PlayerController : MonoBehaviour
     private float horizontalInput;
     private float verticalInput;
     
-    private Rigidbody playerRb;
+    private Rigidbody playerRigidbody;
+    private Animator playerAnimator;
     
+    private static readonly int SpeedF = Animator.StringToHash("Speed_f");
+
     // Start is called before the first frame update
     private void Start()
     {
-        playerRb = GetComponent<Rigidbody>();
+        playerRigidbody = GetComponent<Rigidbody>();
+        playerAnimator = GetComponent<Animator>();
         currentStamina = maxStamina;
         speed = speedDefault;
     }
@@ -38,6 +42,7 @@ public class PlayerController : MonoBehaviour
         
         UpdateSpeed();
         UpdateStamina();
+        UpdateAnimation();
     }
     
     private void FixedUpdate()
@@ -47,10 +52,22 @@ public class PlayerController : MonoBehaviour
 
     private void Move()
     {
-        playerRb.velocity = new Vector3(horizontalInput * Time.deltaTime, playerRb.velocity.y,
+        playerRigidbody.velocity = new Vector3(horizontalInput * Time.deltaTime, playerRigidbody.velocity.y,
             verticalInput * Time.deltaTime);
     }
 
+    private void UpdateAnimation()
+    {
+        if (playerRigidbody.velocity.magnitude > 0)
+        {
+            if(isSpeedUp)
+                playerAnimator.SetFloat(SpeedF,1f);
+            playerAnimator.SetFloat(SpeedF,0.75f);
+        }
+        else
+            playerAnimator.SetFloat(SpeedF,0f);
+    }
+    
     private void UpdateSpeed()
     {
         if (isHasStamina)
@@ -70,6 +87,7 @@ public class PlayerController : MonoBehaviour
             {
                 speed = speedDefault / speedMultiplier;
             }
+            playerAnimator.SetFloat(SpeedF,0.25f);
         }
         
     }

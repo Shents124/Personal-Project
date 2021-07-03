@@ -10,6 +10,7 @@ public class Dragon : Animal,IDamageable
     private int runSpeed = 18;
     private int flySpeed = 22;
     private int healthBonus = 50;
+    private float distanceToPlayer;
     
     private Animator dragonAnimator;
     private static readonly int IsRun = Animator.StringToHash("isRun");
@@ -27,8 +28,30 @@ public class Dragon : Animal,IDamageable
 
     protected override void Update()
     {
-        this.transform.LookAt(playerTransform);
-        float distanceToPlayer = Vector3.Distance(transform.position, playerTransform.position);
+        Transform dragonTransform = transform;
+        dragonTransform.LookAt(playerTransform);
+        distanceToPlayer = Vector3.Distance(dragonTransform.position, playerTransform.position);
+        
+        UpdateState();
+        
+        animalHealthBar.UpdateHealth(currentHealth);
+    }
+
+    public void TakeDame(int amountOfDame)
+    {
+        currentHealth -= amountOfDame;
+        if (currentHealth <= 0)
+        {
+            animalHealthBar.gameObject.SetActive(false);
+            DestroyGameObject();
+            healthDragon += healthBonus;
+            EventBroker.CallUpdateScore(dataAnimal.pointScore);
+            SoundManager.Instance.PlaySound(SoundManager.Instance.bossDead);
+        }
+    }
+
+    private void UpdateState()
+    {
         if (distanceToPlayer >= maxDistanceRange)
         {
             dragonAnimator.SetBool(IsRun,false);
@@ -47,19 +70,7 @@ public class Dragon : Animal,IDamageable
             dataAnimal.speed = 0;
         }
     }
-
-    public void TakeDame(int amountOfDame)
-    {
-        currentHealth -= amountOfDame;
-        if (currentHealth <= 0)
-        {
-            DestroyGameObject();
-            healthDragon += healthBonus;
-            EventBroker.CallUpdateScore(dataAnimal.pointScore);
-            SoundManager.Instance.PlaySound(SoundManager.Instance.bossDead);
-        }
-    }
-
+    
     private void DestroyGameObject()
     {
         Destroy(gameObject,3f);
