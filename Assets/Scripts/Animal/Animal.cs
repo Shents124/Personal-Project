@@ -3,13 +3,10 @@ using UnityEngine;
 public class Animal : MonoBehaviour
 {
     public Transform playerTransform;
+    [SerializeField] protected DataAnimal dataAnimal;
     
-    [SerializeField] protected int pointScore;
-    [SerializeField] protected int dame = 5;
-    [SerializeField] protected float speed;
-    
-    protected int currentHealth;
-    protected int maxHealth;
+    protected float currentHealth;
+    protected float maxHealth;
     protected int healthDragon = 200;
     
     private Vector3 direction;
@@ -20,13 +17,11 @@ public class Animal : MonoBehaviour
     {
         timeDelay = 1.5f;
         EventBroker.GameOver += StopFollowingPlayer;
-        EventBroker.GameOver += StopPlaySoundEffect;
     }
 
     private void OnDisable()
     {
         EventBroker.GameOver -= StopFollowingPlayer;
-        EventBroker.GameOver -= StopPlaySoundEffect;
     }
 
     // Start is called before the first frame update
@@ -54,29 +49,19 @@ public class Animal : MonoBehaviour
     {
         direction = (playerTransform.position - transform.position).normalized;
         // Add velocity
-        animalRb.velocity = direction * speed;
+        animalRb.velocity = direction * dataAnimal.speed;
     }
     
     private void StopFollowingPlayer()
     {
-        gameObject.GetComponent<Animal>().enabled = false;
-        gameObject.GetComponent<Animator>().enabled = false;
+        gameObject.SetActive(false);
     }
-
-    private void StopPlaySoundEffect()
-    {
-        AudioSource audioSource = GetComponent<AudioSource>();
-        if (audioSource != null)
-        {
-            audioSource.Stop();
-        }
-    }
-
+    
     private void OnCollisionEnter(Collision other)
     {
         if (other.gameObject.CompareTag("Player"))
         {
-            other.gameObject.GetComponent<IDamageable>().TakeDame(dame);
+            other.gameObject.GetComponent<IDamageable>().TakeDame(dataAnimal.dame);
         }
     }
 }

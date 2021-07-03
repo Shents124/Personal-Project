@@ -2,7 +2,7 @@ public class Cow : Animal,IDamageable
 {
     protected override void OnEnable()
     {
-        maxHealth = 80;
+        maxHealth = dataAnimal.maxHealth.Value;
         currentHealth = maxHealth;
         base.OnEnable();
     }
@@ -12,7 +12,7 @@ public class Cow : Animal,IDamageable
         if (currentHealth <= 0)
         {
             Destroy(gameObject);
-            EventBroker.CallUpdateScore(pointScore);
+            EventBroker.CallUpdateScore(dataAnimal.pointScore);
         }
     }
 }

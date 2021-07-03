@@ -7,8 +7,9 @@ public class Dragon : Animal,IDamageable
     private float maxDistanceRange = 20f;
     private float minDistanceRange = 15f;
     private float rangeAttack = 5f;
-    private float runSpeed = 18f;
-    private float flySpeed = 22f;
+    private int runSpeed = 18;
+    private int flySpeed = 22;
+    private int healthBonus = 50;
     
     private Animator dragonAnimator;
     private static readonly int IsRun = Animator.StringToHash("isRun");
@@ -20,8 +21,7 @@ public class Dragon : Animal,IDamageable
         maxHealth = healthDragon;
         currentHealth = maxHealth;
         dragonAnimator = GetComponent<Animator>();
-        speed = runSpeed;
-        dame = 15;
+        dataAnimal.speed = runSpeed;
         base.OnEnable();
     }
 
@@ -32,19 +32,19 @@ public class Dragon : Animal,IDamageable
         if (distanceToPlayer >= maxDistanceRange)
         {
             dragonAnimator.SetBool(IsRun,false);
-            speed = flySpeed;
+            dataAnimal.speed = flySpeed;
         }
         if(distanceToPlayer <= minDistanceRange)
         {
             dragonAnimator.SetBool(IsRun,true);
-            speed = runSpeed;
+            dataAnimal.speed = runSpeed;
             dirt.Play();
         }
 
         if (distanceToPlayer <= rangeAttack )
         {
             dragonAnimator.SetTrigger(Attack);
-            speed = 0;
+            dataAnimal.speed = 0;
         }
     }
 
@@ -54,8 +54,8 @@ public class Dragon : Animal,IDamageable
         if (currentHealth <= 0)
         {
             DestroyGameObject();
-            healthDragon += 50;
-            EventBroker.CallUpdateScore(pointScore);
+            healthDragon += healthBonus;
+            EventBroker.CallUpdateScore(dataAnimal.pointScore);
             SoundManager.Instance.PlaySound(SoundManager.Instance.bossDead);
         }
     }

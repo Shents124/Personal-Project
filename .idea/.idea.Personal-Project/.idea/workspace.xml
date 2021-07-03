@@ -46,13 +46,13 @@
       <option value="$PROJECT_DIR$/Assets/Scripts/SpawnManager/SpawnWeaponManager.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/SpawnManager/SpawnPowerUpManager.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/SoundManager/SoundManager.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/Player/Shooting.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Event/EventBroker.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Food/Food.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Camera/CameraFollowPlayer.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Animal/Horse.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Animal/Animal.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/SpawnManager/SpawnAnimalManager.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Player/Shooting.cs" />
     </changedPaths>
   </component>
   <component name="ProjectId" id="1uGE8DyVTUs12M8EH0KoJ5cS6jj" />
@@ -108,7 +108,8 @@
       <workItem from="1624605485672" duration="621000" />
       <workItem from="1624611006217" duration="5303000" />
       <workItem from="1624627984387" duration="3725000" />
-      <workItem from="1624668945466" duration="7099000" />
+      <workItem from="1624668945466" duration="7272000" />
+      <workItem from="1624692990395" duration="1635000" />
     </task>
     <servers />
   </component>

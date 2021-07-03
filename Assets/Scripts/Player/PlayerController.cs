@@ -3,20 +3,24 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     public StaminaUI staminaUI;
+    public SpeedUpUI speedUpUI;
     public LayerMask ground;
-    
-    [SerializeField] private float speed;
-    [SerializeField] private float currentStamina;
-    [SerializeField] private float maxStamina = 50;
-    
+    public Joystick leftJoystick;
+
+    private float speed;
     private float speedDefault = 650f;
+    
+    private float maxStamina = 10;
+    private float currentStamina;
+    private float speedMultiplier = 1.5f;
+    
+    private bool isSpeedUp = false;
+    private bool isHasStamina = true;
+    
     private float horizontalInput;
     private float verticalInput;
-    private float speedMultiplier = 1.5f;
-    private bool isSpeedUp = false;
-    private float maxDistance = 50f;
+    
     private Rigidbody playerRb;
-    private bool isHasStamina = true;
     
     // Start is called before the first frame update
     private void Start()
@@ -28,35 +32,17 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
-        horizontalInput = Input.GetAxis("Horizontal") * speed;
-        verticalInput = Input.GetAxis("Vertical") * speed;
-
-        // Increase speed when hold LeftShift key
-        if (isHasStamina)
-        {
-            if (Input.GetKey(KeyCode.LeftShift) && !isSpeedUp)
-            {
-                speed = speedDefault * speedMultiplier;
-                isSpeedUp = true;
-            }
-        }
-        else
-        {
-            speed = speedDefault /speedMultiplier;
-        }
-        // Set speed to default when don't hold LeftShift key any more
-        if (Input.GetKeyUp(KeyCode.LeftShift) && isSpeedUp)
-        {
-            speed = speedDefault;
-            isSpeedUp = false;
-        }
+        isSpeedUp = speedUpUI.isSelected;
+        horizontalInput = leftJoystick.Horizontal * speed;
+        verticalInput = leftJoystick.Vertical * speed;
+        
+        UpdateSpeed();
         UpdateStamina();
     }
     
     private void FixedUpdate()
     {
         Move();
-        RotatePlayer();
     }
 
     private void Move()
@@ -65,17 +51,28 @@ public class PlayerController : MonoBehaviour
             verticalInput * Time.deltaTime);
     }
 
-    private void RotatePlayer()
+    private void UpdateSpeed()
     {
-        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-        RaycastHit hit;
-        if (Physics.Raycast(ray, out hit, maxDistance, ground))
+        if (isHasStamina)
         {
-            // Player look at mouse position
-            transform.LookAt(hit.point);
+            if (isSpeedUp)
+            {
+                speed = speedDefault * speedMultiplier;
+            }
+            else
+            {
+                speed = speedDefault;
+            }
         }
+        else 
+        {
+            if (isSpeedUp)
+            {
+                speed = speedDefault / speedMultiplier;
+            }
+        }
+        
     }
-
     private void UpdateStamina()
     {
         if (isSpeedUp)

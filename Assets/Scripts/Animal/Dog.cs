@@ -1,15 +1,9 @@
-using System.Collections;
-using UnityEngine;
 
 public class Dog : Animal,IDamageable
 {
-    private AudioSource audioSource;
-    
     protected override void OnEnable()
     {
-        audioSource = GetComponent<AudioSource>();
-        StartCoroutine(PlaySound());
-        maxHealth = 30;
+        maxHealth = dataAnimal.maxHealth.Value;
         currentHealth = maxHealth;
         base.OnEnable();
     }
@@ -20,14 +14,7 @@ public class Dog : Animal,IDamageable
         if (currentHealth <= 0)
         {
             Destroy(gameObject);
-            EventBroker.CallUpdateScore(pointScore);
+            EventBroker.CallUpdateScore(dataAnimal.pointScore);
         }
-    }
-
-    private IEnumerator PlaySound()
-    {
-        audioSource.Play();
-        yield return new WaitForSeconds(3f);
-        StartCoroutine(PlaySound());
     }
 }

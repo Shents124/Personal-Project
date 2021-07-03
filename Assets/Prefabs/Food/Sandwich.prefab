@@ -108,7 +108,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0f91bc1e53a29c1429d55d76e583abea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dame: 15
-  hitEffect: {fileID: 100002, guid: e9391f622091e1449bdef4ef15af4948, type: 3}
   moveDirection: {x: 0, y: 0, z: 0}
   playerPosition: {x: 0, y: 0, z: 0}
+  foodData: {fileID: 11400000, guid: 80ec7a20065c0b14b9738ebcbd5d4b2d, type: 2}
+  dame: 15

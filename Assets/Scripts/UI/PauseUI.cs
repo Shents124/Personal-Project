@@ -1,7 +1,6 @@
 #if UNITY_EDITOR
 using UnityEditor;
 #endif
-using System;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -10,8 +9,7 @@ public class PauseUI : MonoBehaviour
     public GameObject pauseMenu;
     public GameObject gameOver;
     public GameObject staminaUI;
-    
-    private bool isGamePaused = false;
+    public GameObject controllerUI;
     
     private void OnEnable()
     {
@@ -22,17 +20,6 @@ public class PauseUI : MonoBehaviour
     {
         EventBroker.GameOver -= DisplayGameOver;
     }
-
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.Escape))
-        {
-            if (isGamePaused == false && pauseMenu.activeInHierarchy == false)
-                PauseGame();
-            else if(isGamePaused && pauseMenu.activeInHierarchy)
-                ResumeGame();
-        }
-    }
     
     public void RestartGame()
     {
@@ -40,14 +27,13 @@ public class PauseUI : MonoBehaviour
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         gameOver.SetActive(false);
         staminaUI.SetActive(true);
+        controllerUI.SetActive(true);
     }
     
-    private void PauseGame()
+    public void PauseGame()
     {
         Time.timeScale = 0f;
         pauseMenu.SetActive(true);
-        isGamePaused = true;
-        staminaUI.SetActive(false);
 
         AudioSource[] audioSource = FindObjectsOfType<AudioSource>();
         foreach (var item in audioSource)
@@ -60,9 +46,7 @@ public class PauseUI : MonoBehaviour
     {
         Time.timeScale = 1f;
         pauseMenu.SetActive(false);
-        isGamePaused = false;
-        staminaUI.SetActive(true);
-        
+
         AudioSource[] audioSource = FindObjectsOfType<AudioSource>();
         foreach (var item in audioSource)
         {
@@ -80,6 +64,12 @@ public class PauseUI : MonoBehaviour
     {
         gameOver.SetActive(true);
         staminaUI.SetActive(false);
+        controllerUI.SetActive(false);
+        AudioSource[] audioSource = FindObjectsOfType<AudioSource>();
+        foreach (var item in audioSource)
+        {
+            item.Stop();
+        }
     }
     
     public void Quit()

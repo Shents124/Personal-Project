@@ -2,11 +2,11 @@ using UnityEngine;
 
 public class PlayerLife : MonoBehaviour, IDamageable
 {
-    public int currentHealth;
+    public FloatVariable currentHealth;
+    public FloatReference maxHealth;
+    public ParticleSystem shieldEffect;
     public HealthBar healthBar;
     public bool isHasShield = false;
-
-    private int maxHealth = 200;
     
     private Animator playerAnimator;
     
@@ -15,16 +15,15 @@ public class PlayerLife : MonoBehaviour, IDamageable
     // Start is called before the first frame update
     private void Start()
     {
-        currentHealth = maxHealth;
-        healthBar.SetMaxHealth(maxHealth);
+        currentHealth.value = maxHealth.Value;
         playerAnimator = GetComponent<Animator>();
     }
 
     private void Update()
     {
-        if (currentHealth >= maxHealth)
+        if (currentHealth.value >= maxHealth.Value)
         {
-            currentHealth = maxHealth;
+            currentHealth.value = maxHealth.Value;
         }
     }
 
@@ -34,9 +33,8 @@ public class PlayerLife : MonoBehaviour, IDamageable
             return;
         else
         {
-            currentHealth -= amountOfDame;
-            healthBar.SetHealth(currentHealth);
-            if (currentHealth <= 0)
+            currentHealth.value -= amountOfDame;
+            if (currentHealth.value <= 0)
             {
                 EventBroker.CallGameOver();
                 playerAnimator.SetBool(DeathB, true);

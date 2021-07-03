@@ -10,7 +10,7 @@ public class MenuUI : MonoBehaviour
     public TextMeshProUGUI highScoreText;
     
     private int highScore;
-
+    
     private void Start()
     {
         highScore = GameManager.Instance.LoadScore();

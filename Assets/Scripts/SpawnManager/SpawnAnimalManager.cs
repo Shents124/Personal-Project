@@ -12,19 +12,10 @@ public class SpawnAnimalManager : MonoBehaviour
     private int maxSpawnRange = 60;
     private int waveSpawn;
     private AudioSource audioSource;
+    private int animalCount = 0;
     
     public static bool isSpawnDragon = false;
     
-    private void OnEnable()
-    {
-        EventBroker.GameOver += StopPlayMusic;
-    }
-
-    private void OnDisable()
-    {
-        EventBroker.GameOver -= StopPlayMusic;
-    }
-
     // Start is called before the first frame update
     private void Start()
     {
@@ -38,7 +29,7 @@ public class SpawnAnimalManager : MonoBehaviour
     // Update is called once per frame
     private void Update()
     {
-        int animalCount = FindObjectsOfType<Animal>().Length;
+        animalCount = transform.childCount;
         if (animalCount <= 0)
         {
             amountOfAnimalSpawn++;
@@ -65,6 +56,7 @@ public class SpawnAnimalManager : MonoBehaviour
             GameObject animalPrefab =
                 Instantiate(listAnimals[x], GenerateSpawnPosition(), listAnimals[x].transform.rotation);
             animalPrefab.GetComponent<Animal>().playerTransform = playerTransform;
+            animalPrefab.transform.parent = this.transform;
         }
     }
 
@@ -95,8 +87,4 @@ public class SpawnAnimalManager : MonoBehaviour
         return false;
     }
     
-    private void StopPlayMusic()
-    {
-        audioSource.Stop();
-    }
 }
