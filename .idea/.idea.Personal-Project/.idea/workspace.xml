@@ -1,5 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select />
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="f9dfd93b-cf8e-4036-9598-6bb385fb3da8" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
@@ -7,53 +25,53 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Event/EventBroker.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Key/Key.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/UI/StaminaUI.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Food/Food.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/PowerUp/PowerUp.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Animal/Dragon.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Interfaces/IDamageable.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Animal/Cow.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/ScriptableObjects/DataAnimal/DataAnimal.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/GameManager/GameManager.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Animal/Animal.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/SoundManager/SoundManager.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/SpawnManager/SpawnAnimalManager.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/SpawnManager/SpawnWeaponManager.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/SpawnManager/SpawnPowerUpManager.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Player/PickupPowerUp.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/GameManager/EndingGame.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/UI/UIManager.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Camera/CameraFollowPlayer.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Player/PlayerController.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/WeaponFoodPickup/WeaponFoodPickup.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/UI/PauseUI.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Player/PickupWeapon.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Player/PlayerLife.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
-    <changedPaths>
-      <option value="$PROJECT_DIR$/Assets/Scripts/SpawnManager/SpawnManager.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/IDamageable.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/UIManager/UIManager.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/UI/StaminaUI.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/Player/Pickup.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/PowerUp/PowerUp.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/SpawnManager/SpawnPowerUp.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/SpawnManager/SpawnWeapon.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/Cursor.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/GameManager.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/Utility/MonoSingleton.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/SpawnManager/SpawnAnimal.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/EventBroker.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/Animal/Cow.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/Animal/Dragon.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/Animal/Stag.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/Animal/Dog.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/GameManager/GameManager.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/Player/PickupWeapon.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/Player/PickupPowerUp.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/Player/PlayerController.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/Player/PlayerLife.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/PoolManager/PoolManager.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/UI/PauseUI.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/UI/UIManager.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/UI/MenuUI.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/UI/HealthBar.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/WeaponFoodPickup/WeaponFoodPickup.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/SpawnManager/SpawnWeaponManager.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/SpawnManager/SpawnPowerUpManager.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/SoundManager/SoundManager.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/Event/EventBroker.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/Food/Food.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/Camera/CameraFollowPlayer.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/Animal/Horse.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/Animal/Animal.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/SpawnManager/SpawnAnimalManager.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/Player/Shooting.cs" />
-    </changedPaths>
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/Assets/Scripts/Animal/Cow.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/UI/UIManager.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Player/PlayerController.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Key/Key.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/GameManager/GameManager.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/SoundManager/SoundManager.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Camera/CameraFollowPlayer.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Event/EventBroker.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/GameManager/EndingGame.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/UI/PauseUI.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Animal/Dragon.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Player/PickupWeapon.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/SpawnManager/SpawnAnimalManager.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Animal/Animal.cs" />
+      </list>
+    </option>
   </component>
   <component name="ProjectId" id="1uGE8DyVTUs12M8EH0KoJ5cS6jj" />
   <component name="ProjectViewState">
@@ -61,33 +79,31 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="DebuggerViewTab_PTCS_FirstProportionKey" value="0.3502052" />
+    <property name="DebuggerViewTab_PTCS_LastProportionKey" value="0.3002736" />
     <property name="Discover.Launch.Via.Unity" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
   </component>
   <component name="RunManager" selected="Attach to Unity Editor.Attach to Unity Editor">
     <configuration name="Attach to Unity Editor &amp; Play" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="UNITY_ATTACH_AND_PLAY" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost">
       <option name="allowRunningInParallel" value="false" />
       <option name="listenPortForConnections" value="false" />
       <option name="pid" />
-      <option name="projectPathOnTarget" />
-      <option name="selectedOptions">
-        <list />
-      </option>
       <method v="2" />
     </configuration>
     <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost">
       <option name="allowRunningInParallel" value="false" />
       <option name="listenPortForConnections" value="false" />
       <option name="pid" />
-      <option name="projectPathOnTarget" />
-      <option name="selectedOptions">
-        <list />
-      </option>
       <method v="2" />
     </configuration>
   </component>
-  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="SpellCheckerSettings" BundledDictionaries="0" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" Dictionaries="0" CorrectionsLimit="5" DefaultDictionary="application-level" UseSingleDictionary="true" />
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
       <changelist id="f9dfd93b-cf8e-4036-9598-6bb385fb3da8" name="Default Changelist" comment="" />
@@ -110,12 +126,90 @@
       <workItem from="1624627984387" duration="3725000" />
       <workItem from="1624668945466" duration="7272000" />
       <workItem from="1624692990395" duration="1635000" />
+      <workItem from="1653744576009" duration="9982000" />
     </task>
     <servers />
   </component>
   <component name="UnityProjectConfiguration" hasMinimizedUI="true" />
   <component name="UnityUnitTestConfiguration" currentTestLauncher="EditMode" />
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state width="1493" height="227" key="GridCell.Tab.0.bottom" timestamp="1653755145073">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="227" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1653755145073" />
+    <state width="1493" height="227" key="GridCell.Tab.0.center" timestamp="1653755145073">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="227" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1653755145073" />
+    <state width="1493" height="227" key="GridCell.Tab.0.left" timestamp="1653755145072">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="227" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1653755145072" />
+    <state width="1493" height="227" key="GridCell.Tab.0.right" timestamp="1653755145073">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="227" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1653755145073" />
+    <state width="1493" height="227" key="GridCell.Tab.1.bottom" timestamp="1653755145073">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="227" key="GridCell.Tab.1.bottom/0.0.1536.824@0.0.1536.824" timestamp="1653755145073" />
+    <state width="1493" height="227" key="GridCell.Tab.1.center" timestamp="1653755145073">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="227" key="GridCell.Tab.1.center/0.0.1536.824@0.0.1536.824" timestamp="1653755145073" />
+    <state width="1493" height="227" key="GridCell.Tab.1.left" timestamp="1653755145073">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="227" key="GridCell.Tab.1.left/0.0.1536.824@0.0.1536.824" timestamp="1653755145073" />
+    <state width="1493" height="227" key="GridCell.Tab.1.right" timestamp="1653755145073">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="227" key="GridCell.Tab.1.right/0.0.1536.824@0.0.1536.824" timestamp="1653755145073" />
+    <state width="1493" height="227" key="GridCell.Tab.2.bottom" timestamp="1653755145074">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="227" key="GridCell.Tab.2.bottom/0.0.1536.824@0.0.1536.824" timestamp="1653755145074" />
+    <state width="1493" height="227" key="GridCell.Tab.2.center" timestamp="1653755145074">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="227" key="GridCell.Tab.2.center/0.0.1536.824@0.0.1536.824" timestamp="1653755145074" />
+    <state width="1493" height="227" key="GridCell.Tab.2.left" timestamp="1653755145073">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="227" key="GridCell.Tab.2.left/0.0.1536.824@0.0.1536.824" timestamp="1653755145073" />
+    <state width="1493" height="227" key="GridCell.Tab.2.right" timestamp="1653755145074">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="227" key="GridCell.Tab.2.right/0.0.1536.824@0.0.1536.824" timestamp="1653755145074" />
+    <state width="1493" height="227" key="GridCell.Tab.3.bottom" timestamp="1653755145074">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="227" key="GridCell.Tab.3.bottom/0.0.1536.824@0.0.1536.824" timestamp="1653755145074" />
+    <state width="1493" height="227" key="GridCell.Tab.3.center" timestamp="1653755145074">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="227" key="GridCell.Tab.3.center/0.0.1536.824@0.0.1536.824" timestamp="1653755145074" />
+    <state width="1493" height="227" key="GridCell.Tab.3.left" timestamp="1653755145074">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="227" key="GridCell.Tab.3.left/0.0.1536.824@0.0.1536.824" timestamp="1653755145074" />
+    <state width="1493" height="227" key="GridCell.Tab.3.right" timestamp="1653755145074">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="227" key="GridCell.Tab.3.right/0.0.1536.824@0.0.1536.824" timestamp="1653755145074" />
   </component>
 </project>

@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class Animal : MonoBehaviour
@@ -7,7 +8,7 @@ public class Animal : MonoBehaviour
     
     protected float currentHealth;
     protected float maxHealth;
-    protected float healthDragon = 200;
+    [SerializeField] protected float healthDragon = 300;
     protected AnimalHealthBar animalHealthBar;
     
     private Vector3 direction;
@@ -28,6 +29,11 @@ public class Animal : MonoBehaviour
     private void OnDisable()
     {
         EventBroker.GameOver -= StopFollowingPlayer;
+    }
+
+    private void OnDestroy()
+    {
+        
     }
 
     // Start is called before the first frame update

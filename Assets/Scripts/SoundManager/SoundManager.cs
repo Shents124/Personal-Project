@@ -7,9 +7,12 @@ public class SoundManager : MonoBehaviour
     public AudioClip bossAppearSound;
     public AudioClip bossDead;
     public AudioClip gameOver;
+    public AudioClip ending;
     public AudioClip hitSound;
-    
+
+    public AudioSource spawnAudio;
     private AudioSource audioSource;
+    
     
     private static SoundManager _instance;
     public static SoundManager Instance
@@ -34,11 +37,16 @@ public class SoundManager : MonoBehaviour
         audioSource = GetComponent<AudioSource>();
     }
     
-    public void PlayBattleSound(AudioSource aSource, AudioClip sound)
+    public void PlayBattleSound( AudioClip sound)
     {
-        aSource.clip = sound;
-        aSource.Play();
-        aSource.loop = true;
+        spawnAudio.clip = sound;
+        spawnAudio.Play();
+        spawnAudio.loop = true;
+    }
+
+    public void StopPlayBattleSound()
+    {
+        spawnAudio.Stop();
     }
     
     public void PlaySound(AudioClip sound)

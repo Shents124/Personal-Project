@@ -21,6 +21,7 @@ public class PickupWeapon : MonoBehaviour
         if (other.CompareTag(weaponTag))
         {
             weaponFoodType = other.GetComponent<WeaponFoodPickup>().weaponFoodType;
+            SoundManager.Instance.PlaySound(SoundManager.Instance.collectingItem);
             Destroy(other.gameObject);
             EventBroker.CallPickupWeaponFood(weaponFoodType);
             SpawnWeaponManager.amountOfWeapon--;

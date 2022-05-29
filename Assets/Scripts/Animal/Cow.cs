@@ -11,6 +11,7 @@ public class Cow : Animal,IDamageable
         if(animalHealthBar.gameObject.activeInHierarchy == false)
             animalHealthBar.gameObject.SetActive(true);
         currentHealth -= amountOfDame;
+        
         if (currentHealth <= 0)
         {
             Destroy(gameObject);

@@ -1,56 +1,77 @@
 using System.Collections.Generic;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class SpawnAnimalManager : MonoBehaviour
 {
     public GameObject dragon;
     public List<GameObject> listAnimals;
     public Transform playerTransform;
-    
-    private int amountOfAnimalSpawn= 5;
-    private int maxAmountOfAnimalSpawn = 20;
-    private int maxSpawnRange = 60;
+    public GameObject key;
+
+    [SerializeField] private int amountOfAnimalSpawn = 5;
+    private const int MaxSpawnRange = 60;
     private int waveSpawn;
-    private AudioSource audioSource;
     private int animalCount = 0;
-    
-    public static bool isSpawnDragon = false;
-    
+
+    private void OnEnable()
+    {
+        EventBroker.onSpawnWave += Spawn;
+    }
+
+    private void OnDisable()
+    {
+        EventBroker.onSpawnWave -= Spawn;
+    }
+
     // Start is called before the first frame update
     private void Start()
     {
-        audioSource = GetComponent<AudioSource>();
-        SpawnAnimalWave(amountOfAnimalSpawn);
+        key.SetActive(false);
+        SpawnAnimalWave();
         waveSpawn = 1;
         EventBroker.CallDisplayWaveSpawn(waveSpawn);
-        isSpawnDragon = false;
     }
 
     // Update is called once per frame
     private void Update()
     {
         animalCount = transform.childCount;
-        if (animalCount <= 0)
+        
+        if (animalCount <= 0 && waveSpawn < 5)
         {
-            amountOfAnimalSpawn++;
-            if (amountOfAnimalSpawn >= maxAmountOfAnimalSpawn)
-                amountOfAnimalSpawn = maxAmountOfAnimalSpawn;
-            waveSpawn++;
-            SpawnAnimalWave(amountOfAnimalSpawn);
-            EventBroker.CallDisplayWaveSpawn(waveSpawn);
-            
-            if (IsSpawnDragonWave())
-            {
-                SpawnDragonWave();
-            }
+           key.SetActive(true);
         }
     }
 
-    private void SpawnAnimalWave(int amountOfAnimal)
+    private void Spawn()
     {
-        SoundManager.Instance.PlayBattleSound(audioSource,SoundManager.Instance.GetRandomBattleSound());
+        key.SetActive(false);
         
-        for (int i = 0; i < amountOfAnimal; i++)
+        if (IsSpawnDragonWave())
+        {
+            SpawnDragonWave();
+        }
+        else
+        {
+            SpawnAnimalWave();
+        }
+        
+        EventBroker.CallDisplayWaveSpawn(waveSpawn);
+    }
+    
+    private void SpawnAnimalWave()
+    {
+        if (waveSpawn >= 1)
+        {
+            amountOfAnimalSpawn++;
+            waveSpawn++;
+        }
+            
+        
+        SoundManager.Instance.PlayBattleSound(SoundManager.Instance.GetRandomBattleSound());
+
+        for (int i = 0; i < amountOfAnimalSpawn; i++)
         {
             int x = Random.Range(0, listAnimals.Count);
             GameObject animalPrefab =
@@ -62,16 +83,17 @@ public class SpawnAnimalManager : MonoBehaviour
 
     private void SpawnDragonWave()
     {
-        SoundManager.Instance.PlayBattleSound(audioSource,SoundManager.Instance.bossAppearSound);
-        
+        waveSpawn++;
+        SoundManager.Instance.PlayBattleSound(SoundManager.Instance.bossAppearSound);
+
         GameObject dragonInstantiate = Instantiate(dragon, GenerateSpawnPosition(), dragon.transform.rotation);
         dragonInstantiate.GetComponent<Animal>().playerTransform = playerTransform;
     }
 
     private Vector3 GenerateSpawnPosition()
     {
-        int spawnPosX = Random.Range(-maxSpawnRange, maxSpawnRange);
-        int spawnPosZ = Random.Range(-maxSpawnRange, maxSpawnRange);
+        int spawnPosX = Random.Range(-MaxSpawnRange, MaxSpawnRange);
+        int spawnPosZ = Random.Range(-MaxSpawnRange, MaxSpawnRange);
 
         Vector3 spawnPos = new Vector3(spawnPosX, 0, spawnPosZ);
         return spawnPos;
@@ -79,12 +101,6 @@ public class SpawnAnimalManager : MonoBehaviour
 
     private bool IsSpawnDragonWave()
     {
-        if (waveSpawn % 3 == 0 && isSpawnDragon == false)
-        {
-            isSpawnDragon = true;
-            return true;
-        }
-        return false;
+        return waveSpawn == 4;
     }
-    
 }

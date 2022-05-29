@@ -58,7 +58,7 @@ public class PlayerController : MonoBehaviour
 
     private void UpdateAnimation()
     {
-        if (playerRigidbody.velocity.magnitude > 0)
+        if (Mathf.Abs(verticalInput) > 0 && Mathf.Abs(horizontalInput) > 0)
         {
             if(isSpeedUp)
                 playerAnimator.SetFloat(SpeedF,1f);

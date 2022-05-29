@@ -10,15 +10,18 @@ public class PauseUI : MonoBehaviour
     public GameObject gameOver;
     public GameObject staminaUI;
     public GameObject controllerUI;
+    public GameObject victory;
     
     private void OnEnable()
     {
         EventBroker.GameOver += DisplayGameOver;
+        EventBroker.onDisplayGameVictory += DisplayGameVictory;
     }
 
     private void OnDisable()
     {
         EventBroker.GameOver -= DisplayGameOver;
+        EventBroker.onDisplayGameVictory -= DisplayGameVictory;
     }
     
     public void RestartGame()
@@ -70,6 +73,14 @@ public class PauseUI : MonoBehaviour
         {
             item.Stop();
         }
+    }
+
+    private void DisplayGameVictory()
+    {
+        gameOver.SetActive(false);
+        staminaUI.SetActive(false);
+        controllerUI.SetActive(false);
+        victory.SetActive(true);
     }
     
     public void Quit()

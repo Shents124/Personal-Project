@@ -9,7 +9,6 @@ public class Dragon : Animal,IDamageable
     private float rangeAttack = 5f;
     private int runSpeed = 18;
     private int flySpeed = 22;
-    private int healthBonus = 50;
     private float distanceToPlayer;
     
     private Animator dragonAnimator;
@@ -44,9 +43,9 @@ public class Dragon : Animal,IDamageable
         {
             animalHealthBar.gameObject.SetActive(false);
             DestroyGameObject();
-            healthDragon += healthBonus;
             EventBroker.CallUpdateScore(dataAnimal.pointScore);
             SoundManager.Instance.PlaySound(SoundManager.Instance.bossDead);
+            EventBroker.CallOnGameVictory();
         }
     }
 
@@ -79,6 +78,5 @@ public class Dragon : Animal,IDamageable
         gameObject.GetComponent<SphereCollider>().enabled = false;
         gameObject.GetComponent<Rigidbody>().velocity = Vector3.zero;
         gameObject.GetComponent<Dragon>().enabled = false;
-        SpawnAnimalManager.isSpawnDragon = false;
     }
 }

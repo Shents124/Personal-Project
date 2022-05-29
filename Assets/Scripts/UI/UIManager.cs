@@ -66,7 +66,11 @@ public class UIManager : MonoBehaviour
     // ReSharper disable Unity.PerformanceAnalysis
     private void DisplayWaveSpawn(int waveSpawn)
     {
-        waveSpawnAnimal.text = "Wave " + waveSpawn;
+        if(waveSpawn != 5)
+            waveSpawnAnimal.text = "Wave " + waveSpawn;
+        else
+            waveSpawnAnimal.text = "Final wave";
+        
         waveSpawnAnimal.gameObject.SetActive(true);
         Invoke(nameof(TurnOffWaveSpawn),1f);
     }
